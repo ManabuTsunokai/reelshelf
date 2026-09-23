@@ -13,4 +13,54 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tamareel.com/" />
   </url>
+  <url>
+    <loc>https://tamareel.com/help/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/help/plans.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/plans.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/plans.html" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/help/convert-and-upload.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/convert-and-upload.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/convert-and-upload.html" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/help/organize-videos.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/organize-videos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/organize-videos.html" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/help/editing-videos.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/editing-videos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/editing-videos.html" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/en/help/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/en/help/plans.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/plans.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/plans.html" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/en/help/convert-and-upload.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/convert-and-upload.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/convert-and-upload.html" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/en/help/organize-videos.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/organize-videos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/organize-videos.html" />
+  </url>
+  <url>
+    <loc>https://tamareel.com/en/help/editing-videos.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tamareel.com/help/editing-videos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tamareel.com/en/help/editing-videos.html" />
+  </url>
 </urlset>
