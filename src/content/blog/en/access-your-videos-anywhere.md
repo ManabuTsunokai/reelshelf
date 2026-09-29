@@ -25,9 +25,12 @@ Google Drive, OneDrive, iCloud Drive, and Dropbox are services that let you stor
 
 Many cloud storage services can play videos as well. Google Drive, for example, supports video storage and playback, playback-speed controls, and timestamped comments. There are limits on supported formats and playback, however. Google Drive plays videos at resolutions up to 1080p, while OneDrive may be unable to play some videos depending on their format or the device being used. These services are general file storage rather than dedicated video libraries, so the usual experience is to **store arbitrary files and open a video when you need it**.
 
-> **Good for:** Storing many kinds of files, syncing between computers and phones, collaborating with others, and organizing more than just videos in folders.
-
-> **Check first:** Supported playback formats, the visibility of shared links, and whether videos play smoothly in your usual environment.
+<table class="article-summary-table">
+  <tbody>
+    <tr><th scope="row">Good for</th><td>Storing many kinds of files, syncing between computers and phones, collaborating with others, and organizing more than just videos in folders.</td></tr>
+    <tr><th scope="row">Check first</th><td>Supported playback formats, the visibility of shared links, and whether videos play smoothly in your usual environment.</td></tr>
+  </tbody>
+</table>
 
 ## 2\. Self-hosted server: Build your own Netflix-like setup
 
@@ -35,9 +38,12 @@ Plex and Jellyfin turn videos stored on a computer, NAS, or home server into a m
 
 That flexibility comes with responsibility for the storage hardware, uptime, and maintenance. To watch away from home, a Plex server must be powered on, connected to the internet, and configured for remote access. Your connection's upload speed and the server's ability to convert videos for different devices also affect the viewing experience. Depending on your circumstances, remote playback with Plex may require a paid plan.
 
-> **Good for:** People who want fine control over storage and presentation, already have a NAS or always-on computer, or enjoy building and maintaining a server.
-
-> **Check first:** Upfront hardware costs, backups for disk failures, network configuration for remote access, and security.
+<table class="article-summary-table">
+  <tbody>
+    <tr><th scope="row">Good for</th><td>People who want fine control over storage and presentation, already have a NAS or always-on computer, or enjoy building and maintaining a server.</td></tr>
+    <tr><th scope="row">Check first</th><td>Upfront hardware costs, backups for disk failures, network configuration for remote access, and security.</td></tr>
+  </tbody>
+</table>
 
 ## 3\. Video platforms: Use a service designed for sharing
 
@@ -45,9 +51,12 @@ YouTube and Vimeo let you upload, play, and share videos. They handle encoding, 
 
 Be sure to understand the visibility settings. YouTube offers public, unlisted, and private videos. Unlisted videos do not appear in search results, but anyone with the link can share it again. Vimeo offers options such as public, unlisted, password-protected, embed-only, and private, although the available choices depend on the plan. Both are convenient services built around showing videos to other people. Even when a video is private, it can still be subject to the service's terms and content review processes.
 
-> **Good for:** Sharing a viewing link, embedding videos on a website, publishing creative work, or quickly providing a polished playback experience.
-
-> **Check first:** Visibility settings, whether recipients can reshare links, storage and upload limits, copyright requirements, and terms of service.
+<table class="article-summary-table">
+  <tbody>
+    <tr><th scope="row">Good for</th><td>Sharing a viewing link, embedding videos on a website, publishing creative work, or quickly providing a polished playback experience.</td></tr>
+    <tr><th scope="row">Check first</th><td>Visibility settings, whether recipients can reshare links, storage and upload limits, copyright requirements, and terms of service.</td></tr>
+  </tbody>
+</table>
 
 ## 4\. Tamareel: Turn your videos into a library you will revisit
 
@@ -55,9 +64,12 @@ Tamareel is designed for building **your own private video library**. Upload vid
 
 Tamareel does not include publishing or sharing features, so there is no risk of accidentally selecting the wrong public visibility setting. It is a good fit when you want your videos to feel like a browsable collection of works and memories rather than a list of filenames.
 
-> **Good for:** People who want to store, organize, watch, and make simple edits to their own videos without setting up or maintaining a server.
-
-> **Check first:** The storage included with your plan and whether a video's format is supported before uploading. See [Trial and plans](/en/help/plans/) and [Convert and upload a video](/en/help/convert-and-upload/) for details.
+<table class="article-summary-table">
+  <tbody>
+    <tr><th scope="row">Good for</th><td>People who want to store, organize, watch, and make simple edits to their own videos without setting up or maintaining a server.</td></tr>
+    <tr><th scope="row">Check first</th><td>The storage included with your plan and whether a video's format is supported before uploading. See <a href="/en/help/plans/">Trial and plans</a> and <a href="/en/help/convert-and-upload/">Convert and upload a video</a> for details.</td></tr>
+  </tbody>
+</table>
 
 ## How to choose
 
