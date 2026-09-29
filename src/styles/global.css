@@ -129,6 +129,7 @@ footer { padding:25px 0 35px; border-top:1px solid var(--line); }
 .article-prose table { min-width:720px; }
 .article-prose { overflow-wrap:anywhere; }
 .article-prose table { display:block; overflow-x:auto; }
+.article-prose th,.article-prose td { overflow-wrap:normal; word-break:normal; hyphens:none; }
 .legal-prose > h2 { font-size:1.23rem; letter-spacing:-.025em; }
 @media (max-width:760px) { .help-page,.article-page { padding:34px 0 66px; } .help-container,.article-container { width:min(100% - 34px,560px); } .content-card { column-gap:12px; padding:18px 4px; } .content-card .card-link { font-size:.8rem; } .prose th,.prose td { padding:13px 8px; } .article-prose > h2 { padding-top:27px; font-size:1.3rem; } }
 @media (min-width:761px) and (max-width:1020px) { .features-primary { grid-template-columns:repeat(2,1fr); } }

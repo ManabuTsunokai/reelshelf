@@ -85,6 +85,7 @@ export const landing: Record<Locale, LandingContent> = {
     features: {
       title: 'Features built for video',
       lead: 'Unlike ordinary cloud storage, Tamareel combines smooth video playback with robust organization and editing tools.',
+      link: { label: 'Compare ways to store and watch your videos', href: '/en/blog/access-your-videos-anywhere/' },
       image: '/images/en/screen_edit.png',
       imageAlt: 'Tamareel feature screen showing video playback and an editing timeline',
       items: [

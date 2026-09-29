@@ -31,7 +31,7 @@ const home = localizedPath(locale);
         <>
           <a href={home}>{t.home}</a>
           <a class="nav-help" href={localizedPath(locale, '/help/')}>{t.help}</a>
-          {locale === 'ja' && <a href="/blog/">{t.blog}</a>}
+          <a href={localizedPath(locale, '/blog/')}>{t.blog}</a>
         </>
       )}
       {translations.includes(alternate) && (
