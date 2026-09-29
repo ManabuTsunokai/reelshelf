@@ -2,7 +2,7 @@ import type { Locale } from '../lib/i18n';
 
 export type LandingContent = {
   seo: { title: string; description: string; image: string; imageAlt: string };
-  hero: { eyebrow: string; title: string[]; lead: string; primary: string; secondary: string; image: string; imageAlt: string };
+  hero: { eyebrow: string; title: string[]; lead: string; primary: string; secondary: string; image: string; imageAlt: string; imageWidth: number; imageHeight: number };
   features: {
     title: string;
     lead: string;
@@ -36,6 +36,8 @@ export const landing: Record<Locale, LandingContent> = {
       secondary: '詳しく見る',
       image: '/images/ja/main.png',
       imageAlt: 'Tamareelの動画コレクション画面',
+      imageWidth: 1994,
+      imageHeight: 1218,
     },
     features: {
       title: '動画に特化した機能',
@@ -77,6 +79,8 @@ export const landing: Record<Locale, LandingContent> = {
       secondary: 'Learn more',
       image: '/images/en/main.png',
       imageAlt: 'Tamareel video collection screen',
+      imageWidth: 1994,
+      imageHeight: 1184,
     },
     features: {
       title: 'Features built for video',

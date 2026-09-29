@@ -19,7 +19,14 @@ const { content } = Astro.props;
       </div>
     </div>
     <div class="app-preview">
-      <img class="main-visual" src={content.image} alt={content.imageAlt} width="1536" height="1024" fetchpriority="high" />
+      <img
+        class="main-visual"
+        src={content.image}
+        alt={content.imageAlt}
+        width={content.imageWidth}
+        height={content.imageHeight}
+        fetchpriority="high"
+      />
     </div>
   </div>
 </section>
