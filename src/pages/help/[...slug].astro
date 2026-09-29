@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import HelpArticle from '../../components/HelpArticle.astro';
+import { slugFromId } from '../../lib/i18n';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('help', ({ data }) => data.locale === 'ja');
+  return entries.map((entry) => ({ params: { slug: slugFromId(entry.id) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+---
+
+<HelpArticle entry={entry} />

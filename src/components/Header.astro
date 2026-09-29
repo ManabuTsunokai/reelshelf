@@ -1,0 +1,43 @@
+---
+import { localizedPath, otherLocale, type Locale, ui } from '../lib/i18n';
+import { site } from '../data/site';
+
+interface Props {
+  locale: Locale;
+  path?: string;
+  mode?: 'landing' | 'internal';
+  translations?: Locale[];
+}
+
+const { locale, path = '/', mode = 'internal', translations = ['ja', 'en'] } = Astro.props;
+const t = ui[locale];
+const alternate = otherLocale(locale);
+const home = localizedPath(locale);
+---
+
+<div class="container">
+  <header class="site-header">
+    <a class="brand" href={home} aria-label={t.homeLabel}>
+      <img src="/images/logo_light.svg" alt="Tamareel" width="354" height="72" />
+    </a>
+    <nav class="nav" aria-label={t.navLabel}>
+      {mode === 'landing' ? (
+        <>
+          <a href={`${home}#features`}>{t.features}</a>
+          <a href={`${home}#how-it-works`}>{t.howItWorks}</a>
+          <a class="nav-help" href={localizedPath(locale, '/help/')}>{t.help}</a>
+        </>
+      ) : (
+        <>
+          <a href={home}>{t.home}</a>
+          <a class="nav-help" href={localizedPath(locale, '/help/')}>{t.help}</a>
+          {locale === 'ja' && <a href="/blog/">{t.blog}</a>}
+        </>
+      )}
+      {translations.includes(alternate) && (
+        <a href={localizedPath(alternate, path)} lang={alternate}>{t.language}</a>
+      )}
+      <a class="nav-cta" href={site.signupUrl}>{t.getStarted}</a>
+    </nav>
+  </header>
+</div>

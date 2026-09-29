@@ -1,0 +1,25 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from './Eyebrow.astro';
+import { formatDate, slugFromId, ui } from '../lib/i18n';
+
+interface Props { entry: CollectionEntry<'legal'> }
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { locale, title, description, lead, updatedAt, noindex } = entry.data;
+const slug = slugFromId(entry.id);
+const t = ui[locale];
+---
+
+<BaseLayout title={`${title} | Tamareel`} description={description} locale={locale} path={`/${slug}/`} noindex={noindex}>
+  <main class="legal-page">
+    <article class="container legal-container">
+      <Eyebrow label="LEGAL" />
+      <h1>{title}</h1>
+      <p class="legal-updated">{t.updated}: {formatDate(updatedAt, locale)}</p>
+      <p class="legal-lead">{lead}</p>
+      <div class="prose legal-prose"><Content /></div>
+    </article>
+  </main>
+</BaseLayout>

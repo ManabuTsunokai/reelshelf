@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from './landing/Hero.astro';
+import FeatureGrid from './landing/FeatureGrid.astro';
+import Steps from './landing/Steps.astro';
+import CallToAction from './CallToAction.astro';
+import { landing } from '../data/landing';
+import type { Locale } from '../lib/i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const content = landing[locale];
+const structuredData = [
+  { '@type': 'Organization', name: 'Tamareel', url: 'https://tamareel.com/', logo: 'https://tamareel.com/images/icon.svg' },
+  { '@type': 'WebSite', name: 'Tamareel', url: 'https://tamareel.com/', inLanguage: locale },
+  { '@type': 'SoftwareApplication', name: 'Tamareel', url: 'https://tamareel.com/', applicationCategory: 'VideoApplication', operatingSystem: 'Web', description: content.seo.description },
+];
+---
+
+<BaseLayout
+  title={content.seo.title}
+  description={content.seo.description}
+  locale={locale}
+  image={content.seo.image}
+  imageAlt={content.seo.imageAlt}
+  headerMode="landing"
+  structuredData={structuredData}
+>
+  <main id="top">
+    <Hero content={content.hero} />
+    <FeatureGrid content={content.features} />
+    <Steps content={content.steps} />
+    <CallToAction {...content.cta} />
+  </main>
+</BaseLayout>

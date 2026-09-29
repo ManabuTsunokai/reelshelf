@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from './Eyebrow.astro';
+import { localizedPath, slugFromId, type Locale, ui } from '../lib/i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale];
+const articles = (await getCollection('blog', ({ data }) => data.locale === locale))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout title={`${t.blogTitle} | Tamareel`} description={t.blogDescription} locale={locale} path="/blog/" translations={[locale]}>
+  <main class="article-page">
+    <div class="article-container container">
+      <Eyebrow label="VIDEO GUIDE" />
+      <h1>{t.blogTitle}</h1>
+      <p class="article-lead">{t.blogDescription}</p>
+      {articles.map((article) => (
+        <a class="content-card" href={localizedPath(locale, `/blog/${slugFromId(article.id)}/`)}>
+          <Eyebrow label={article.data.eyebrow} />
+          <h2>{article.data.title}</h2>
+          <p>{article.data.description}</p>
+          <span class="card-link">{t.readArticle} <span aria-hidden="true">→</span></span>
+        </a>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

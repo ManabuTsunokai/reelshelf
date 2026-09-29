@@ -1,0 +1,24 @@
+---
+import { localizedPath, type Locale, ui } from '../lib/i18n';
+import { site } from '../data/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale];
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="footer-brand" href={localizedPath(locale)} aria-label={t.homeLabel}>
+      <img src="/images/logo_light.svg" alt="Tamareel" width="354" height="72" />
+    </a>
+    <div class="footer-meta">
+      {locale === 'ja' && <a href="/blog/">{t.blog}</a>}
+      <a href={localizedPath(locale, '/help/')}>{t.help}</a>
+      <a href={localizedPath(locale, '/terms/')}>{t.terms}</a>
+      <a href={localizedPath(locale, '/privacy/')}>{t.privacy}</a>
+      <a href={localizedPath(locale, '/commercial-disclosure/')}>{t.commercial}</a>
+      <span>{site.copyright}</span>
+    </div>
+  </div>
+</footer>

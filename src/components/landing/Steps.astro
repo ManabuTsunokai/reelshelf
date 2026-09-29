@@ -1,0 +1,25 @@
+---
+import type { LandingContent } from '../../data/landing';
+
+interface Props { content: LandingContent['steps'] }
+const { content } = Astro.props;
+---
+
+<section id="how-it-works" class="section">
+  <div class="container">
+    <div class="section-intro">
+      <h2>{content.title}</h2>
+      <p>{content.lead}</p>
+      <a class="section-link" href={content.link.href}>{content.link.label} <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="steps">
+      {content.items.map((item, index) => (
+        <article class="step">
+          <div class="number">{String(index + 1).padStart(2, '0')}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

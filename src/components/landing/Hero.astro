@@ -1,0 +1,25 @@
+---
+import type { LandingContent } from '../../data/landing';
+import { site } from '../../data/site';
+import Eyebrow from '../Eyebrow.astro';
+
+interface Props { content: LandingContent['hero'] }
+const { content } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <Eyebrow label={content.eyebrow} />
+      <h1>{content.title.map((line, index) => <>{index > 0 && <br />}{line}</>)}</h1>
+      <p class="lead">{content.lead}</p>
+      <div class="hero-actions">
+        <a class="button" href={site.signupUrl}>{content.primary} <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="#features">{content.secondary}</a>
+      </div>
+    </div>
+    <div class="app-preview">
+      <img class="main-visual" src={content.image} alt={content.imageAlt} width="1536" height="1024" fetchpriority="high" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import LegalArticle from '../components/LegalArticle.astro';
+import { slugFromId } from '../lib/i18n';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('legal', ({ data }) => data.locale === 'ja');
+  return entries.map((entry) => ({ params: { legal: slugFromId(entry.id) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+---
+
+<LegalArticle entry={entry} />

@@ -1,0 +1,28 @@
+---
+import type { LandingContent } from '../../data/landing';
+
+interface Props { content: LandingContent['features'] }
+const { content } = Astro.props;
+---
+
+<section id="features" class="section section-tint">
+  <div class="container">
+    <div class="section-intro">
+      <h2>{content.title}</h2>
+      <p>{content.lead}</p>
+      {content.link && <a class="section-link" href={content.link.href}>{content.link.label} <span aria-hidden="true">→</span></a>}
+    </div>
+    <div class="features features-primary">
+      {content.items.map((item) => (
+        <article class="feature">
+          <div class="feature-icon"><img src={item.icon} width="24" height="24" alt="" /></div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+    <div class="features-visual">
+      <img src={content.image} width="1632" height="1438" loading="lazy" alt={content.imageAlt} />
+    </div>
+  </div>
+</section>

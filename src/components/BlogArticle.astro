@@ -1,0 +1,41 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from './Eyebrow.astro';
+import CallToAction from './CallToAction.astro';
+import { formatDate, localizedPath, slugFromId, ui } from '../lib/i18n';
+
+interface Props { entry: CollectionEntry<'blog'> }
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { locale, title, seoTitle, description, lead, eyebrow, author, publishedAt, updatedAt } = entry.data;
+const slug = slugFromId(entry.id);
+const t = ui[locale];
+const path = `/blog/${slug}/`;
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+const structuredData = [
+  { '@type': 'Article', '@id': `${canonical}#article`, headline: title, description, datePublished: publishedAt.toISOString(), dateModified: updatedAt.toISOString(), inLanguage: locale, author: { '@type': 'Person', name: author }, publisher: { '@type': 'Organization', name: 'Tamareel', url: 'https://tamareel.com/' }, mainEntityOfPage: canonical },
+  { '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t.blog, item: new URL(localizedPath(locale, '/blog/'), Astro.site).toString() },
+    { '@type': 'ListItem', position: 2, name: title },
+  ] },
+];
+---
+
+<BaseLayout title={seoTitle} description={description} locale={locale} path={path} translations={[locale]} structuredData={structuredData}>
+  <main class="article-page">
+    <article class="article-container container">
+      <p class="breadcrumb"><a href={localizedPath(locale, '/blog/')}>{t.blog}</a><span aria-hidden="true">/</span>{title}</p>
+      <Eyebrow label={eyebrow} />
+      <h1>{title}</h1>
+      <p class="article-byline">{t.writtenBy} <strong>{author}</strong><span aria-hidden="true"> · </span>{t.publishedAndUpdated}: {formatDate(updatedAt, locale)}</p>
+      <p class="article-lead">{lead}</p>
+      <div class="prose article-prose"><Content /></div>
+    </article>
+  </main>
+  <CallToAction
+    title={locale === 'ja' ? ['自分の動画を、いつでも見返せる場所へ。'] : ['Your videos, ready whenever you are.']}
+    lead={locale === 'ja' ? 'Tamareelで、自分専用の動画ライブラリをはじめませんか。' : 'Start building your own private video library with Tamareel.'}
+    label={locale === 'ja' ? '無料ではじめる' : 'Get started for free'}
+  />
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from './Eyebrow.astro';
+import { localizedPath, slugFromId, ui } from '../lib/i18n';
+
+interface Props { entry: CollectionEntry<'help'> }
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { locale, title, description, lead, eyebrow } = entry.data;
+const slug = slugFromId(entry.id);
+const t = ui[locale];
+---
+
+<BaseLayout title={`${title} | Tamareel ${t.help}`} description={description} locale={locale} path={`/help/${slug}/`}>
+  <main class="help-page">
+    <article class="help-container container">
+      <p class="breadcrumb"><a href={localizedPath(locale, '/help/')}>{t.help}</a><span aria-hidden="true">/</span>{title}</p>
+      <Eyebrow label={eyebrow} />
+      <h1>{title}</h1>
+      <p class="help-lead">{lead}</p>
+      <div class="prose help-prose"><Content /></div>
+    </article>
+  </main>
+</BaseLayout>
