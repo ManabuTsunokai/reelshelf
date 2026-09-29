@@ -1,4 +1,5 @@
 ---
+import { Picture } from 'astro:assets';
 import type { LandingContent } from '../../data/landing';
 import { site } from '../../data/site';
 import Eyebrow from '../Eyebrow.astro';
@@ -19,13 +20,15 @@ const { content } = Astro.props;
       </div>
     </div>
     <div class="app-preview">
-      <img
+      <Picture
         class="main-visual"
         src={content.image}
+        formats={['avif', 'webp']}
+        widths={[465, 780, 1560]}
+        sizes="(max-width: 760px) calc(100vw - 60px), 780px"
+        quality={75}
         alt={content.imageAlt}
-        width={content.imageWidth}
-        height={content.imageHeight}
-        fetchpriority="high"
+        priority
       />
     </div>
   </div>

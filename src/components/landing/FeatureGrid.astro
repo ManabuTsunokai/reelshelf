@@ -1,4 +1,5 @@
 ---
+import { Picture } from 'astro:assets';
 import type { LandingContent } from '../../data/landing';
 
 interface Props { content: LandingContent['features'] }
@@ -22,7 +23,16 @@ const { content } = Astro.props;
       ))}
     </div>
     <div class="features-visual">
-      <img src={content.image} width="1632" height="1438" loading="lazy" alt={content.imageAlt} />
+      <Picture
+        src={content.image}
+        formats={['avif', 'webp']}
+        widths={[480, 720, 1440]}
+        sizes="(max-width: 760px) calc(100vw - 46px), 720px"
+        quality={75}
+        loading="lazy"
+        decoding="async"
+        alt={content.imageAlt}
+      />
     </div>
   </div>
 </section>

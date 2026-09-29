@@ -1,6 +1,15 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+const noindexPaths = new Set([
+  '/terms/',
+  '/privacy/',
+  '/commercial-disclosure/',
+  '/en/terms/',
+  '/en/privacy/',
+  '/en/commercial-disclosure/',
+]);
+
 export default defineConfig({
   site: 'https://tamareel.com',
   output: 'static',
@@ -12,5 +21,9 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !noindexPaths.has(new URL(page).pathname),
+    }),
+  ],
 });

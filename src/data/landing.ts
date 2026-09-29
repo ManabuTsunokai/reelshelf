@@ -1,13 +1,18 @@
+import type { ImageMetadata } from 'astro';
 import type { Locale } from '../lib/i18n';
+import enMainImage from '../assets/images/en/main.png';
+import enScreenEditImage from '../assets/images/en/screen_edit.png';
+import jaMainImage from '../assets/images/ja/main.png';
+import jaScreenEditImage from '../assets/images/ja/screen_edit.png';
 
 export type LandingContent = {
   seo: { title: string; description: string; image: string; imageAlt: string };
-  hero: { eyebrow: string; title: string[]; lead: string; primary: string; secondary: string; image: string; imageAlt: string; imageWidth: number; imageHeight: number };
+  hero: { eyebrow: string; title: string[]; lead: string; primary: string; secondary: string; image: ImageMetadata; imageAlt: string };
   features: {
     title: string;
     lead: string;
     link?: { label: string; href: string };
-    image: string;
+    image: ImageMetadata;
     imageAlt: string;
     items: Array<{ icon: string; title: string; description: string }>;
   };
@@ -25,7 +30,7 @@ export const landing: Record<Locale, LandingContent> = {
     seo: {
       title: 'Tamareel | あなたの動画コレクションを、もっと身近に',
       description: '大切な動画コレクションを、ひとつの場所に。Tamareelならアップロードから視聴まで、すっきり管理できます。',
-      image: '/images/ja/main.png',
+      image: jaMainImage.src,
       imageAlt: 'Tamareelの動画コレクション画面',
     },
     hero: {
@@ -34,16 +39,14 @@ export const landing: Record<Locale, LandingContent> = {
       lead: 'Tamareelは、自分専用の動画配信プラットフォームを構築できるクラウドサービスです。',
       primary: 'はじめる',
       secondary: '詳しく見る',
-      image: '/images/ja/main.png',
+      image: jaMainImage,
       imageAlt: 'Tamareelの動画コレクション画面',
-      imageWidth: 1994,
-      imageHeight: 1218,
     },
     features: {
       title: '動画に特化した機能',
       lead: 'ただのクラウドストレージと違い、動画のスムーズな再生と充実した整理・編集機能が特徴です。',
       link: { label: '動画の保存方法を比較して選ぶ', href: '/blog/access-your-videos-anywhere/' },
-      image: '/images/ja/screen_edit.png',
+      image: jaScreenEditImage,
       imageAlt: '動画の再生画面とタイムラインを表示したTamareelの機能画面',
       items: [
         { icon: '/images/icons/play_arrow_24px.svg', title: 'スムーズな再生', description: 'パソコンでもスマートフォンでも、動画の好きなシーンからすぐ再生できます。' },
@@ -68,7 +71,7 @@ export const landing: Record<Locale, LandingContent> = {
     seo: {
       title: 'Tamareel | Your video collection, closer to you',
       description: 'Your personal video collection, all in one place. Upload, organize, and enjoy your videos with Tamareel.',
-      image: '/images/en/main.png',
+      image: enMainImage.src,
       imageAlt: 'Tamareel video collection screen',
     },
     hero: {
@@ -77,16 +80,14 @@ export const landing: Record<Locale, LandingContent> = {
       lead: 'Tamareel is a cloud service that lets you build your own private video streaming platform.',
       primary: 'Get started',
       secondary: 'Learn more',
-      image: '/images/en/main.png',
+      image: enMainImage,
       imageAlt: 'Tamareel video collection screen',
-      imageWidth: 1994,
-      imageHeight: 1184,
     },
     features: {
       title: 'Features built for video',
       lead: 'Unlike ordinary cloud storage, Tamareel combines smooth video playback with robust organization and editing tools.',
       link: { label: 'Compare ways to store and watch your videos', href: '/en/blog/access-your-videos-anywhere/' },
-      image: '/images/en/screen_edit.png',
+      image: enScreenEditImage,
       imageAlt: 'Tamareel feature screen showing video playback and an editing timeline',
       items: [
         { icon: '/images/icons/play_arrow_24px.svg', title: 'Smooth playback', description: 'On your computer or smartphone, jump straight to any scene in your videos.' },
