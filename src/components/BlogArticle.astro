@@ -1,5 +1,5 @@
 ---
-import { render, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from './Eyebrow.astro';
 import CallToAction from './CallToAction.astro';
@@ -10,6 +10,8 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { locale, title, seoTitle, description, lead, eyebrow, author, publishedAt, updatedAt } = entry.data;
 const slug = slugFromId(entry.id);
+const translations = (await getCollection('blog', (article) => slugFromId(article.id) === slug))
+  .map((article) => article.data.locale);
 const t = ui[locale];
 const path = `/blog/${slug}/`;
 const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
@@ -22,7 +24,7 @@ const structuredData = [
 ];
 ---
 
-<BaseLayout title={seoTitle} description={description} locale={locale} path={path} structuredData={structuredData}>
+<BaseLayout title={seoTitle} description={description} locale={locale} path={path} translations={translations} structuredData={structuredData}>
   <main class="article-page">
     <article class="article-container container">
       <p class="breadcrumb"><a href={localizedPath(locale, '/blog/')}>{t.blog}</a><span aria-hidden="true">/</span>{title}</p>
