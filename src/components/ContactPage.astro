@@ -7,6 +7,7 @@ interface Props { locale: Locale }
 
 const { locale } = Astro.props;
 const privacyUrl = localizedPath(locale, '/privacy/');
+const contactApiUrl = import.meta.env.PUBLIC_CONTACT_API_URL ?? '';
 
 const content = {
   ja: {
@@ -16,11 +17,11 @@ const content = {
     category: 'お問い合わせ種別',
     categoryPlaceholder: '選択してください',
     categories: [
-      'サービスについての質問',
-      '機能の要望',
-      '不具合の報告',
-      '料金・契約について',
-      'その他',
+      { value: 'question', label: 'サービスについての質問' },
+      { value: 'feature_request', label: '機能の要望' },
+      { value: 'bug_report', label: '不具合の報告' },
+      { value: 'billing', label: '料金・契約について' },
+      { value: 'other', label: 'その他' },
     ],
     name: 'お名前',
     optional: '任意',
@@ -34,7 +35,12 @@ const content = {
     privacy: 'プライバシーポリシー',
     privacySuffix: 'に同意します。',
     submit: '送信する',
-    preparing: 'フォームからの送信機能は現在準備中です。',
+    sending: '送信しています…',
+    sendError: '送信できませんでした。時間をおいて、もう一度お試しください。',
+    unavailable: '現在、フォームからお問い合わせいただけません。',
+    successTitle: 'お問い合わせを受け付けました',
+    successMessage: 'お問い合わせありがとうございます。返信が必要な場合は、ご入力いただいたメールアドレスへご連絡します。',
+    backHome: 'ホームへ戻る',
     required: '必須',
   },
   en: {
@@ -44,11 +50,11 @@ const content = {
     category: 'Topic',
     categoryPlaceholder: 'Select a topic',
     categories: [
-      'Question about the service',
-      'Feature request',
-      'Report a problem',
-      'Pricing or subscription',
-      'Other',
+      { value: 'question', label: 'Question about the service' },
+      { value: 'feature_request', label: 'Feature request' },
+      { value: 'bug_report', label: 'Report a problem' },
+      { value: 'billing', label: 'Pricing or subscription' },
+      { value: 'other', label: 'Other' },
     ],
     name: 'Name',
     optional: 'Optional',
@@ -62,7 +68,12 @@ const content = {
     privacy: 'Privacy Policy',
     privacySuffix: '.',
     submit: 'Send message',
-    preparing: 'Form submission is currently being prepared.',
+    sending: 'Sending…',
+    sendError: 'Your message could not be sent. Please wait a moment and try again.',
+    unavailable: 'The contact form is currently unavailable.',
+    successTitle: 'Your message has been received',
+    successMessage: 'Thank you for contacting us. If a reply is needed, we will contact you at the email address you provided.',
+    backHome: 'Back to home',
     required: 'Required',
   },
 } as const;
@@ -87,7 +98,15 @@ const t = content[locale];
 
       <section class="contact-form-card" aria-labelledby="contact-form-title">
         <h2 id="contact-form-title" class="sr-only">{t.title}</h2>
-        <form class="contact-form">
+        <form
+          class="contact-form"
+          data-contact-form
+          data-api-url={contactApiUrl}
+          data-locale={locale}
+          data-submit-label={t.submit}
+          data-sending-label={t.sending}
+          data-error-message={t.sendError}
+        >
           <div class="contact-field">
             <label for="contact-category">
               {t.category}
@@ -96,7 +115,7 @@ const t = content[locale];
             <div class="select-wrap">
               <select id="contact-category" name="category" required>
                 <option value="" selected disabled>{t.categoryPlaceholder}</option>
-                {t.categories.map((category) => <option value={category}>{category}</option>)}
+                {t.categories.map((category) => <option value={category.value}>{category.label}</option>)}
               </select>
             </div>
           </div>
@@ -157,13 +176,107 @@ const t = content[locale];
             </span>
           </label>
 
-          <button class="contact-submit" type="submit" disabled aria-describedby="contact-preparing">
-            {t.submit}
+          <div class="contact-honeypot" aria-hidden="true">
+            <label for="contact-website">Website</label>
+            <input
+              id="contact-website"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <button class="contact-submit" type="submit" disabled={!contactApiUrl} data-contact-submit>
+            <span data-contact-submit-label>{t.submit}</span>
             <span aria-hidden="true">→</span>
           </button>
-          <p id="contact-preparing" class="contact-preparing">{t.preparing}</p>
+          <p
+            class="contact-status"
+            data-contact-status
+            data-state={contactApiUrl ? 'idle' : 'error'}
+            role="status"
+            aria-live="polite"
+          >
+            {!contactApiUrl && t.unavailable}
+          </p>
         </form>
+
+        <div class="contact-success" data-contact-success hidden tabindex="-1">
+          <div class="contact-success-icon" aria-hidden="true">✓</div>
+          <h2>{t.successTitle}</h2>
+          <p>{t.successMessage}</p>
+          <a class="button button-secondary" href={localizedPath(locale)}>{t.backHome}</a>
+        </div>
       </section>
     </div>
   </main>
 </BaseLayout>
+
+<script>
+  const forms = document.querySelectorAll<HTMLFormElement>('[data-contact-form]')
+
+  for (const form of forms) {
+    if (form.dataset.initialized === 'true') continue
+    form.dataset.initialized = 'true'
+
+    const submitButton = form.querySelector<HTMLButtonElement>('[data-contact-submit]')
+    const submitLabel = form.querySelector<HTMLElement>('[data-contact-submit-label]')
+    const status = form.querySelector<HTMLElement>('[data-contact-status]')
+    const success = form.parentElement?.querySelector<HTMLElement>('[data-contact-success]')
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault()
+
+      if (!form.reportValidity() || !submitButton || !submitLabel || !status || !success) {
+        return
+      }
+
+      const apiUrl = form.dataset.apiUrl
+      if (!apiUrl) return
+
+      submitButton.disabled = true
+      form.setAttribute('aria-busy', 'true')
+      submitLabel.textContent = form.dataset.sendingLabel ?? ''
+      status.textContent = ''
+      status.dataset.state = 'idle'
+
+      const formData = new FormData(form)
+      const payload = {
+        category: String(formData.get('category') ?? ''),
+        name: String(formData.get('name') ?? ''),
+        email: String(formData.get('email') ?? ''),
+        message: String(formData.get('message') ?? ''),
+        privacy: formData.get('privacy') === 'on',
+        website: String(formData.get('website') ?? ''),
+        locale: form.dataset.locale ?? 'ja',
+      }
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+
+        if (!response.ok) {
+          throw new Error(`Contact API returned ${response.status}`)
+        }
+
+        form.hidden = true
+        success.hidden = false
+        success.focus()
+      } catch {
+        submitButton.disabled = false
+        submitLabel.textContent = form.dataset.submitLabel ?? ''
+        status.textContent = form.dataset.errorMessage ?? ''
+        status.dataset.state = 'error'
+      } finally {
+        form.removeAttribute('aria-busy')
+      }
+    })
+  }
+</script>
