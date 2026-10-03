@@ -37,7 +37,7 @@ const home = localizedPath(locale);
       {translations.includes(alternate) && (
         <a href={localizedPath(alternate, path)} lang={alternate}>{t.language}</a>
       )}
-      <a class="nav-cta" href={site.signupUrl}>{t.getStarted}</a>
+      <a class="nav-cta" href={site.signupUrl} data-ga-cta-location="header">{t.getStarted}</a>
     </nav>
   </header>
 </div>

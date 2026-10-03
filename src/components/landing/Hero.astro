@@ -15,7 +15,7 @@ const { content } = Astro.props;
       <h1>{content.title.map((line, index) => <>{index > 0 && <br />}{line}</>)}</h1>
       <p class="lead">{content.lead}</p>
       <div class="hero-actions">
-        <a class="button" href={site.signupUrl}>{content.primary} <span aria-hidden="true">→</span></a>
+        <a class="button" href={site.signupUrl} data-ga-cta-location="hero">{content.primary} <span aria-hidden="true">→</span></a>
         <a class="button button-secondary" href="#features">{content.secondary}</a>
       </div>
     </div>

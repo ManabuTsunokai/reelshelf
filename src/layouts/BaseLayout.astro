@@ -31,6 +31,7 @@ const {
 } = Astro.props;
 const canonical = new URL(localizedPath(locale, path), Astro.site);
 const absoluteImage = image ? new URL(image, Astro.site) : undefined;
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
 const graph = structuredData
   ? { '@context': 'https://schema.org', '@graph': Array.isArray(structuredData) ? structuredData : [structuredData] }
   : undefined;
@@ -39,6 +40,32 @@ const graph = structuredData
 <!doctype html>
 <html lang={locale}>
   <head>
+    {gaMeasurementId && (
+      <>
+        <!-- Google tag (gtag.js) -->
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function gtag(){window.dataLayer.push(arguments);}
+          window.gtag('js', new Date());
+          window.gtag('config', gaMeasurementId);
+
+          document.addEventListener('click', (event) => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+
+            const cta = target.closest('[data-ga-cta-location]');
+            if (!(cta instanceof HTMLAnchorElement)) return;
+
+            window.gtag('event', 'cta_click', {
+              cta_location: cta.dataset.gaCtaLocation,
+              language: document.documentElement.lang,
+              link_url: cta.href,
+            });
+          });
+        </script>
+      </>
+    )}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
