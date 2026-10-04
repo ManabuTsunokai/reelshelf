@@ -22,6 +22,11 @@ export type LandingContent = {
     link: { label: string; href: string };
     items: Array<{ title: string; description: string }>;
   };
+  resources: {
+    title: string;
+    lead: string;
+    items: Array<{ title: string; description: string; label: string; href: string }>;
+  };
   cta: { title: string[]; lead: string; label: string };
 };
 
@@ -65,6 +70,15 @@ export const landing: Record<Locale, LandingContent> = {
         { title: '好きなときに観る', description: 'どこからでも自分の動画コレクションを楽しめます。' },
       ],
     },
+    resources: {
+      title: 'もっと知る',
+      lead: '動画に関する記事やTamareelの使い方を確認できます。ご質問やご要望もこちらからお寄せください。',
+      items: [
+        { title: 'ヘルプ', description: 'Tamareelの使い方やトライアル、プランについて確認できます。', label: 'ヘルプを見る', href: '/help/' },
+        { title: 'ブログ', description: '動画の保存・整理・視聴に役立つ記事を紹介します。', label: 'ブログを読む', href: '/blog/' },
+        { title: 'お問い合わせ', description: 'ご質問、ご要望、不具合についてお問い合わせいただけます。', label: '問い合わせる', href: '/contact/' },
+      ],
+    },
     cta: { title: ['動画を楽しむ', '場所を作ろう'], lead: '自分専用の動画配信プラットフォームが、数分で開始できます。', label: 'Tamareelをはじめる' },
   },
   en: {
@@ -104,6 +118,15 @@ export const landing: Record<Locale, LandingContent> = {
         { title: 'Add your videos', description: 'Upload the videos you already have.' },
         { title: 'Add the details', description: 'Enter titles, descriptions, and tags to make everything easier to find.' },
         { title: 'Watch anytime', description: 'Enjoy your personal video collection from wherever you are.' },
+      ],
+    },
+    resources: {
+      title: 'Learn more',
+      lead: 'Read guides about video and learn how to use Tamareel. You can also contact us with questions or feedback.',
+      items: [
+        { title: 'Help', description: 'Learn how to use Tamareel and find details about trials and plans.', label: 'View help', href: '/en/help/' },
+        { title: 'Blog', description: 'Explore articles about storing, organizing, and watching your videos.', label: 'Read the blog', href: '/en/blog/' },
+        { title: 'Contact', description: 'Contact us with questions, feedback, or issue reports.', label: 'Contact us', href: '/en/contact/' },
       ],
     },
     cta: { title: ['Create a place', 'to enjoy your videos.'], lead: 'Your own private video streaming platform can be ready in minutes.', label: 'Get started with Tamareel' },

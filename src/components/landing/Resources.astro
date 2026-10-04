@@ -1,0 +1,24 @@
+---
+import type { LandingContent } from '../../data/landing';
+
+interface Props { content: LandingContent['resources'] }
+const { content } = Astro.props;
+---
+
+<section class="section section-tint resources-section">
+  <div class="container">
+    <div class="section-intro">
+      <h2>{content.title}</h2>
+      <p>{content.lead}</p>
+    </div>
+    <div class="resources">
+      {content.items.map((item) => (
+        <a class="resource-card" href={item.href}>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <span class="resource-card-link">{item.label} <span aria-hidden="true">→</span></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

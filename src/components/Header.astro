@@ -24,8 +24,8 @@ const home = localizedPath(locale);
       {mode === 'landing' ? (
         <>
           <a href={`${home}#features`}>{t.features}</a>
-          <a href={`${home}#how-it-works`}>{t.howItWorks}</a>
           <a class="nav-help" href={localizedPath(locale, '/help/')}>{t.help}</a>
+          <a href={localizedPath(locale, '/blog/')}>{t.blog}</a>
         </>
       ) : (
         <>

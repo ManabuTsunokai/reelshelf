@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from './landing/Hero.astro';
 import FeatureGrid from './landing/FeatureGrid.astro';
 import Steps from './landing/Steps.astro';
+import Resources from './landing/Resources.astro';
 import CallToAction from './CallToAction.astro';
 import { landing } from '../data/landing';
 import type { Locale } from '../lib/i18n';
@@ -30,6 +31,7 @@ const structuredData = [
     <Hero content={content.hero} />
     <FeatureGrid content={content.features} />
     <Steps content={content.steps} />
+    <Resources content={content.resources} />
     <CallToAction {...content.cta} />
   </main>
 </BaseLayout>
