@@ -60,8 +60,11 @@ h2 { margin:0; font-size:clamp(2rem,3.6vw,3.1rem); line-height:1.2; letter-spaci
 .cta-box { padding:62px min(8vw,90px); border-radius:23px; background:var(--ink); color:#fff; text-align:center; }
 .cta-box h2 { max-width:630px; margin:0 auto; }
 .cta-box p { max-width:510px; margin:16px auto 27px; color:#c4ceca; }
+.cta-actions { display:flex; flex-direction:column; align-items:center; gap:15px; }
 .cta-box .button { background:#4bdc8b; color:#123522; box-shadow:none; }
 .cta-box .button:hover { background:#69e9a0; }
+.cta-secondary-link { color:#dce4e1; font-size:.88rem; font-weight:800; text-decoration:underline; text-underline-offset:4px; }
+.cta-secondary-link:hover { color:#fff; }
 footer { padding:25px 0 35px; border-top:1px solid var(--line); }
 .footer-inner { display:flex; justify-content:space-between; align-items:center; color:#78807d; font-size:.78rem; }
 .footer-brand img { display:block; width:118px; height:auto; opacity:.76; }

@@ -1,8 +1,27 @@
 ---
 import { site } from '../data/site';
 
-interface Props { title: string[]; lead: string; label: string }
-const { title, lead, label } = Astro.props;
+interface Props {
+  title: string[];
+  lead: string;
+  label: string;
+  href?: string;
+  trackingLocation?: string;
+  secondary?: {
+    label: string;
+    href: string;
+    trackingLocation?: string;
+  };
+}
+
+const {
+  title,
+  lead,
+  label,
+  href = site.signupUrl,
+  trackingLocation = 'bottom',
+  secondary,
+} = Astro.props;
 ---
 
 <section class="cta">
@@ -10,7 +29,18 @@ const { title, lead, label } = Astro.props;
     <div class="cta-box">
       <h2>{title.map((line, index) => <>{index > 0 && <br />}{line}</>)}</h2>
       <p>{lead}</p>
-      <a class="button" href={site.signupUrl} data-ga-cta-location="bottom">{label} <span aria-hidden="true">→</span></a>
+      <div class="cta-actions">
+        <a class="button" href={href} data-ga-cta-location={trackingLocation}>{label} <span aria-hidden="true">→</span></a>
+        {secondary && (
+          <a
+            class="cta-secondary-link"
+            href={secondary.href}
+            data-ga-cta-location={secondary.trackingLocation ?? `${trackingLocation}-secondary`}
+          >
+            {secondary.label}
+          </a>
+        )}
+      </div>
     </div>
   </div>
 </section>

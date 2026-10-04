@@ -3,6 +3,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from './Eyebrow.astro';
 import CallToAction from './CallToAction.astro';
+import { site } from '../data/site';
 import { formatDate, localizedPath, slugFromId, ui } from '../lib/i18n';
 
 interface Props { entry: CollectionEntry<'blog'> }
@@ -37,7 +38,14 @@ const structuredData = [
   </main>
   <CallToAction
     title={locale === 'ja' ? ['自分の動画を、いつでも見返せる場所へ。'] : ['Your videos, ready whenever you are.']}
-    lead={locale === 'ja' ? 'Tamareelで、自分専用の動画ライブラリをはじめませんか。' : 'Start building your own private video library with Tamareel.'}
-    label={locale === 'ja' ? '無料ではじめる' : 'Get started for free'}
+    lead={locale === 'ja' ? 'Tamareelなら、動画の保存・整理・再生をひとつの場所で行えます。' : 'With Tamareel, you can store, organize, and watch your videos all in one place.'}
+    label={locale === 'ja' ? 'Tamareelについて詳しく見る' : 'Learn more about Tamareel'}
+    href={localizedPath(locale)}
+    trackingLocation="blog-learn-more"
+    secondary={{
+      label: locale === 'ja' ? '無料トライアルを始める' : 'Start a free trial',
+      href: site.signupUrl,
+      trackingLocation: 'blog-signup',
+    }}
   />
 </BaseLayout>
