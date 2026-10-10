@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from './Eyebrow.astro';
 import { localizedPath, slugFromId, type Locale, ui } from '../lib/i18n';
@@ -18,11 +19,23 @@ const articles = (await getCollection('blog', ({ data }) => data.locale === loca
       <h1>{t.blogTitle}</h1>
       <p class="article-lead">{t.blogDescription}</p>
       {articles.map((article) => (
-        <a class="content-card" href={localizedPath(locale, `/blog/${slugFromId(article.id)}/`)}>
-          <Eyebrow label={article.data.eyebrow} />
-          <h2>{article.data.title}</h2>
-          <p>{article.data.description}</p>
-          <span class="card-link">{t.readArticle} <span aria-hidden="true">→</span></span>
+        <a class:list={['content-card', { 'content-card-with-image': article.data.eyecatch }]} href={localizedPath(locale, `/blog/${slugFromId(article.id)}/`)}>
+          {article.data.eyecatch && (
+            <Image
+              class="content-card-image"
+              src={article.data.eyecatch}
+              alt={article.data.eyecatchAlt ?? article.data.title}
+              widths={[220, 440, 720, 1120]}
+              sizes="(max-width: 760px) calc(100vw - 34px), 220px"
+              format="webp"
+              quality={82}
+            />
+          )}
+          <div class="content-card-body">
+            <Eyebrow label={article.data.eyebrow} />
+            <h2>{article.data.title}</h2>
+            <p>{article.data.description}</p>
+          </div>
         </a>
       ))}
     </div>

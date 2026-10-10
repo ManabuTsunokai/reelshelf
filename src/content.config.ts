@@ -18,12 +18,14 @@ const help = defineCollection({
 
 const blog = defineCollection({
   loader: glob({ base: './src/content/blog', pattern: '**/*.md' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     seoTitle: z.string(),
     description: z.string(),
     lead: z.string(),
     eyebrow: z.string(),
+    eyecatch: image().optional(),
+    eyecatchAlt: z.string().optional(),
     locale,
     author: z.string(),
     publishedAt: z.coerce.date(),

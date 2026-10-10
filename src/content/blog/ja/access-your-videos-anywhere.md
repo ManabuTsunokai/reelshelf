@@ -4,6 +4,8 @@ seoTitle: "動画をクラウド保存してどこからでも見る方法｜Goo
 description: "自分の動画をどこからでも見られるようにする4つの方法を比較。Google Drive、OneDrive、iCloud Drive、Dropbox、Plex、Jellyfin、YouTube、Vimeo、Tamareelの特徴と選び方を解説します。"
 lead: "撮った動画を、自宅でも外出先でも、見たいときにすぐ見られるようにしたい。そんな目的を叶える４つの方法をご紹介します。それぞれに異なる特徴があり、何を重視するかで最適な方法は変わりますので、この比較を参考にしていただければ幸いです。"
 eyebrow: "COMPARISON"
+eyecatch: "../../../assets/images/blog/access-videos-anywhere-ja.png"
+eyecatchAlt: "自分の動画にどこからでもアクセスする4つの方法"
 locale: ja
 author: "@yanakadev"
 publishedAt: 2026-09-26
