@@ -3,18 +3,18 @@ title: "Privacy Policy"
 description: "Privacy Policy for Tamareel."
 lead: "The individual who develops and operates Tamareel (the “Operator”) handles Users’ personal information appropriately in providing the video storage and viewing service Tamareel (the “Service”). This Policy sets out the handling of personal information in the Service."
 locale: en
-updatedAt: 2026-08-22
+updatedAt: 2026-10-17
 noindex: true
 ---
 
-## 1\. Information We Collect
+## 1\. Information We Handle
 
-We collect the following information to the extent necessary to provide the Service.
+We handle the following information to the extent necessary to provide the Service.
 
 1.  **Account information**  
     Email address, encrypted or hashed password, language, time zone, and other information registered or configured by the User.
 2.  **User Content and related information**  
-    Videos, thumbnails, subtitles, video titles, descriptions, tags, playback positions, upload dates and times, file sizes, conversion settings, and other information necessary to manage and view videos.
+    Videos, thumbnails, subtitles, video titles, descriptions, tags, playback positions, upload dates and times, file sizes, conversion settings, and other information necessary to manage and view videos. This information may include personal information.
 3.  **Usage and technical information**  
     IP address, browser or device information, access dates and times, activity logs, error logs, authentication and security logs, storage usage, and data transfer volume.
 4.  **Payment-related information**  
@@ -32,14 +32,14 @@ We use the information we collect for the following purposes.
 4.  To manage storage capacity, data transfer volume, and other usage limits.
 5.  To respond to incidents, maintain the Service, implement security measures, prevent unauthorized access, and improve the quality of the Service.
 6.  To send important notices about the Service, verify identity, and respond to inquiries.
-7.  To respond to violations of laws, the Terms of Use, or our policies.
-8.  To take action required by law.
+7.  To take action required by law.
 
 ## 3\. Handling of User Content
 
 1.  Videos and other User Content in the Service are stored in a private library solely for the User.
-2.  The Operator does not ordinarily view or review User Content and does not provide features or operations for constantly or periodically monitoring its contents.
-3.  However, where there is a legal request, a security need, reliable information indicating a possible violation of the Terms of Use or our policies, or another reasonable reason, the Operator may review User Content to the extent necessary and may restrict use, delete content, or take other action.
+2.  Except where required by law, the Operator does not view, watch or listen to, monitor, or review the content of User Content.
+3.  The storage, format analysis, conversion, thumbnail generation, delivery, backup, and deletion of videos, as well as other processing necessary to provide the Service, are performed automatically by information systems. This automated processing does not constitute the viewing, watching or listening to, monitoring, or review described in the preceding paragraph.
+4.  Where required by law, the Operator may, to the minimum extent necessary, review, preserve, or provide User Content; restrict access to or delete User Content; or take other necessary action.
 
 ## 4\. Service Providers and Provision to Third Parties
 
@@ -62,9 +62,8 @@ To prevent unauthorized access, leakage, alteration, loss, or damage of personal
 
 ## 7\. Retention Period and Deletion
 
-1.  We retain personal information and User Content for the period necessary to achieve the purposes of use, the period required by law, or the data-retention period set forth in the Terms of Use.
-2.  If a User cancels or otherwise loses eligibility to use the Service, we delete User Content and other data after the retention period set forth in the Terms of Use or otherwise displayed has elapsed.
-3.  Where necessary to comply with legal obligations, respond to disputes, prevent unauthorized use, or for other reasons, we may retain information to the extent necessary.
+1.  We retain personal information and User Content for the period necessary to achieve the purposes of use, the period required by law, or the data-retention period set forth in the Terms of Use. If a User cancels or otherwise loses eligibility to use the Service, we delete User Content and other data after the retention period set forth in the Terms of Use or otherwise displayed has elapsed.
+2.  Where necessary to comply with legal obligations, respond to disputes, prevent unauthorized use, or for other reasons, we may retain information to the extent necessary.
 
 ## 8\. Users’ Rights
 

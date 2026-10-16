@@ -3,16 +3,15 @@ title: "Terms of Use"
 description: "Terms of Use for Tamareel."
 lead: "These Terms of Use (the “Terms”) set forth the terms and conditions for using Tamareel (the “Service”). Customers who use the Service (“Users”) must use the Service only after agreeing to these Terms."
 locale: en
-updatedAt: 2026-08-22
+updatedAt: 2026-10-17
 noindex: true
 ---
 
 ## Article 1 (Description of the Service)
 
-1.  The Service is a cloud-based service that enables Users to upload, store, convert, and view videos for which they hold the rights or have obtained the permissions necessary for storage and viewing, in a private library solely for that User.
-2.  The Service is not a public video distribution service, video sales service, video sharing service, marketplace, creator-support service, tipping service, or service for transfers to third parties.
-3.  Videos stored through the Service may be viewed only from the account of the User who uploaded them. We do not provide features that enable sharing with other Users, issuing public links, or searching for or viewing videos by third parties.
-4.  We may modify, add to, or discontinue the features, specifications, terms of provision, or regions in which the Service is available.
+1.  The Service is a cloud-based service that enables Users to upload, store, convert, and view videos in a private library solely for that User.
+2.  Videos stored through the Service may be viewed only from the account of the User who uploaded them. We do not provide features that enable sharing with other Users, issuing public links, or searching for or viewing videos by third parties.
+3.  We may modify, add to, or discontinue the features, specifications, terms of provision, or regions in which the Service is available.
 
 ## Article 2 (Accounts)
 
@@ -23,32 +22,23 @@ noindex: true
 
 ## Article 3 (User Content and Rights)
 
-1.  Users represent and warrant that they hold all necessary copyrights, neighboring rights, portrait rights, publicity rights, trademark rights, and other rights or permissions for videos, images, subtitles, audio, descriptions, and other content uploaded to the Service (“User Content”).
-2.  Rights in User Content remain with the User or the rightful owner. These Terms do not transfer any rights in User Content to us.
-3.  Users grant us a non-exclusive, royalty-free right to store, reproduce, convert, deliver, and delete User Content to the extent necessary to provide, operate, maintain, troubleshoot, secure, and comply with laws applicable to the Service.
-4.  We do not ordinarily view or review User Content and do not provide features or operations for constantly or periodically monitoring its contents. We have no obligation to monitor, screen, or review User Content.
-5.  Notwithstanding the preceding paragraph, where there is a legal request, a security need, reliable information indicating a possible violation of these Terms or our policies, or another reasonable reason, we may review User Content to the extent necessary and take measures including restricting access, deleting content, or suspending use of the Service.
+1.  Rights in videos, images, subtitles, audio, descriptions, and other content uploaded to the Service (“User Content”) remain with the User or the rightful owner. These Terms do not transfer any rights in User Content to us.
+2.  Users agree that, solely to the extent necessary to provide the Service's features to that User, our information systems may store, reproduce, analyze the format of, convert, transmit to the User, back up, and delete User Content, and Users grant us a non-exclusive, royalty-free license to the extent necessary for those processes.
+3.  The processing described in the preceding paragraph is performed automatically, and the license granted in that paragraph does not include viewing, watching or listening to, monitoring, or reviewing the content of User Content. Except as provided in Article 5, we do not engage in such activities and have no obligation to monitor, screen, or verify the content of User Content.
 
-## Article 4 (Prohibited Conduct)
+## Article 4 (User Responsibilities and Prohibited Conduct)
 
-Users must not engage in any of the following when using the Service:
+1.  Users shall hold the rights or permissions from the relevant rights holders necessary to upload, store, convert, and view User Content through the Service. Users are solely responsible for User Content and their use of the Service, shall comply with applicable laws, and shall not infringe the rights or interests of third parties.
+2.  Users must not use the Service to disclose, share, sell, redistribute, or make videos or files available for transmission to third parties, or to provide hosting, storage, or video distribution services to third parties.
+3.  Users must not access the Service or related systems without authorization, cause excessive load, scan for vulnerabilities, reverse engineer, or interfere with the Service or related systems.
+4.  Users must not misuse payment methods, fraudulently avoid chargebacks, or engage in other fraudulent conduct.
+5.  Users must not use the Service for criminal conduct or preparation for criminal conduct.
+6.  Users must not otherwise engage in conduct that materially interferes with the safe or stable provision of the Service.
 
-1.  Uploading, storing, distributing, or using films, television programs, music, animation, sports footage, software, or other copyrighted works without the permission of the rights holder;
-2.  Infringing the privacy, portrait rights, reputation, credit, or other rights or interests of another person;
-3.  Uploading or using content that violates laws or public order and morals;
-4.  Handling content involving sexual exploitation, child sexual exploitation or abuse, illegal drugs, violence, terrorism, self-harm, or promotion of discrimination;
-5.  Using the Service to make videos or files public, share, sell, resell, redistribute, or make them available for transmission to third parties;
-6.  Using the Service as a file-sharing service, cyberlocker, hosting service for third parties, storage-resale service, or video distribution platform;
-7.  Unauthorized access to the Service or related systems, causing excessive load, vulnerability scanning, reverse engineering, or interference;
-8.  Unauthorized use of payment methods, registration using false information, improper avoidance of chargebacks, or other fraudulent conduct;
-9.  Criminal conduct or preparation for criminal conduct using the Service; or
-10.  Any other conduct that we reasonably determine to be inappropriate.
+## Article 5 (Actions Required by Law)
 
-## Article 5 (Response to Rights Infringement)
-
-1.  Users shall confirm, at their own responsibility, that User Content does not infringe the rights of third parties.
-2.  If we receive a request required by law, a request from a court or other public authority, or reliable information indicating that User Content infringes rights, we may take measures to the extent necessary, including restricting access to or deleting User Content, suspending an account, or taking other action.
-3.  Where necessary for the response set forth in the preceding paragraph, we may contact the User and request an explanation or supporting materials.
+1.  Where required by law or when complying with a lawful order from a court or other competent public authority, we may, to the minimum extent necessary, review, preserve, or provide User Content; restrict access to or delete User Content; suspend an account; or take other necessary measures.
+2.  Where necessary for the actions set forth in the preceding paragraph, we may contact the User and request an explanation or supporting materials, unless such contact is prohibited by law or by an order of a public authority.
 
 ## Article 6 (Fees and Payment)
 
@@ -60,10 +50,9 @@ Users must not engage in any of the following when using the Service:
 
 ## Article 7 (Usage Limits and Deletion of Data)
 
-1.  We may impose limits for each plan, including storage capacity, data transfer volume, permitted upload file formats, and usage periods.
-2.  If a User exceeds an available storage capacity or data transfer limit, we may restrict uploads, video conversion, or viewing.
-3.  If a User cancels or otherwise loses eligibility to use the Service, we may delete User Content and other data after the separately specified data-retention period has elapsed.
-4.  Before cancellation or suspension, Users shall obtain or back up any necessary User Content at their own responsibility.
+1.  We may impose limits for each plan, including storage capacity, data transfer volume, permitted upload file formats, and usage periods. If a User exceeds an available storage capacity or data transfer limit, we may restrict uploads, video conversion, or viewing.
+2.  If a User cancels a paid plan, is unable to make payment, or otherwise no longer has a valid subscription, we retain User Content and other data in the User's library for 60 days from the date the subscription becomes invalid. After the retention period expires, we delete that data. Because deletion is performed through periodic processing, it may occur promptly after, rather than immediately upon, expiration of the retention period.
+3.  Users shall retain the originals and any necessary backups of videos and other User Content uploaded to the Service at their own responsibility.
 
 ## Article 8 (Interruption or Suspension of the Service)
 
@@ -78,7 +67,7 @@ We may suspend a User’s account or use of the Service, or terminate the servic
 1.  We do not guarantee that the Service will meet a User’s particular purpose or that it will be complete, accurate, continuous, available, or secure.
 2.  We do not guarantee the integrity or continued storage of User Content, that it will not be lost or damaged, or that unauthorized access by third parties will not occur.
 3.  If we cause damage to a User in connection with the Service and are liable for damages, except in cases of our intentional misconduct or gross negligence, our liability is limited to the total fees paid by the User to us during the 12 months preceding the time the damage occurred.
-4.  The preceding two paragraphs do not apply to the extent that they are restricted or invalid under the Consumer Contract Act or other applicable laws.
+4.  This Article does not apply to the extent that its provisions are restricted or invalid under the Consumer Contract Act or other applicable laws.
 
 ## Article 11 (Personal Information)
 
@@ -90,7 +79,7 @@ Our handling of Users’ personal information is governed by a separately establ
 2.  When amending these Terms, we will provide notice of the amendment and its effective date by posting it in the Service or by another appropriate method.
 3.  If a User uses the Service after the effective date, the User is deemed to have agreed to the amended Terms.
 
-## Article 13 (Governing Law, Jurisdiction, and Language)
+## Article 13 (Governing Law and Jurisdiction)
 
 1.  These Terms are governed by and construed in accordance with the laws of Japan.
 2.  Any dispute between a User and us concerning the Service or these Terms shall be subject to the exclusive jurisdiction of the district court having jurisdiction over our registered address as the court of first instance.
