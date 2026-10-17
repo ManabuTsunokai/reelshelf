@@ -16,7 +16,7 @@ const { content } = Astro.props;
       <p class="lead">{content.lead}</p>
       <div class="hero-actions">
         <a class="button" href={site.signupUrl} data-ga-cta-location="hero">{content.primary} <span aria-hidden="true">→</span></a>
-        <a class="button button-secondary" href="#features">{content.secondary}</a>
+        <a class="button button-secondary" href={content.secondaryHref}>{content.secondary}</a>
       </div>
     </div>
     <div class="app-preview">

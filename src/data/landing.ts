@@ -7,7 +7,7 @@ import jaScreenEditImage from '../assets/images/ja/screen_edit.png';
 
 export type LandingContent = {
   seo: { title: string; description: string; image: string; imageAlt: string };
-  hero: { eyebrow: string; title: string[]; lead: string; primary: string; secondary: string; image: ImageMetadata; imageAlt: string };
+  hero: { eyebrow: string; title: string[]; lead: string; primary: string; secondary: string; secondaryHref: string; image: ImageMetadata; imageAlt: string };
   features: {
     title: string;
     lead: string;
@@ -15,6 +15,13 @@ export type LandingContent = {
     image: ImageMetadata;
     imageAlt: string;
     items: Array<{ icon: string; title: string; description: string }>;
+  };
+  trust?: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    items: Array<{ number: string; title: string; description: string }>;
+    links: Array<{ label: string; href: string }>;
   };
   steps: {
     title: string;
@@ -42,15 +49,15 @@ export const landing: Record<Locale, LandingContent> = {
       eyebrow: 'YOUR VIDEO LIBRARY',
       title: ['自分専用の', '動画配信サービス'],
       lead: 'Tamareelは、自分専用の動画配信プラットフォームを構築できるクラウドサービスです。',
-      primary: 'はじめる',
+      primary: '無料ではじめる',
       secondary: '詳しく見る',
+      secondaryHref: '#privacy',
       image: jaMainImage,
       imageAlt: 'Tamareelの動画コレクション画面',
     },
     features: {
       title: '動画に特化した機能',
       lead: 'ただのクラウドストレージと違い、動画のスムーズな再生と充実した整理・編集機能が特徴です。',
-      link: { label: '動画の保存方法を比較して選ぶ', href: '/blog/access-your-videos-anywhere/' },
       image: jaScreenEditImage,
       imageAlt: '動画の再生画面とタイムラインを表示したTamareelの機能画面',
       items: [
@@ -58,6 +65,21 @@ export const landing: Record<Locale, LandingContent> = {
         { icon: '/images/icons/video_library_24px.svg', title: '充実した整理機能', description: 'タイトル、タグ、説明、プレイリストなど、動画を整理する機能が充実しています。' },
         { icon: '/images/icons/lock_24px.svg', title: '自分専用のコレクション', description: '動画の共有機能はありません。自分専用のコレクションを安全に保管します。' },
         { icon: '/images/icons/content_cut_24px.svg', title: '手軽な編集機能', description: '再生したい範囲を指定して、必要なシーンをまとめた編集動画をブラウザ上で作れます。' },
+      ],
+    },
+    trust: {
+      eyebrow: 'PRIVACY BY DESIGN',
+      title: '動画は、あなたのもの。',
+      lead: 'Tamareelは、動画を誰かと共有するためではなく、あなた自身が保管・視聴するためのサービスです。プライバシーを守る方針を、利用規約とプライバシーポリシーに明記しています。',
+      items: [
+        { number: '01', title: 'あなた専用の非公開ライブラリ', description: '動画を閲覧できるのは、アップロードした本人のアカウントだけ。共有機能や公開リンク、第三者が検索・閲覧できる機能はありません。' },
+        { number: '02', title: '動画の内容を確認しません', description: '法令上必要な場合を除き、運営者が動画の内容を閲覧、視聴、監視または審査することはありません。' },
+        { number: '03', title: '自動処理と安全管理', description: '保存、形式解析、変換、サムネイル生成などは情報システムが自動で処理。通信の暗号化、アクセス制御、ログ管理などの安全管理措置も講じています。' },
+        { number: '04', title: 'コンテンツの権利はあなたのまま', description: 'アップロードした動画の権利がTamareelへ移ることはありません。サービス提供に必要な範囲だけ、処理の許諾をいただきます。' },
+      ],
+      links: [
+        { label: '利用規約を読む', href: '/terms/' },
+        { label: 'プライバシーポリシーを読む', href: '/privacy/' },
       ],
     },
     steps: {
@@ -92,15 +114,15 @@ export const landing: Record<Locale, LandingContent> = {
       eyebrow: 'YOUR VIDEO LIBRARY',
       title: ['Your own', 'video streaming service'],
       lead: 'Tamareel is a cloud service that lets you build your own private video streaming platform.',
-      primary: 'Get started',
+      primary: 'Start for free',
       secondary: 'Learn more',
+      secondaryHref: '#privacy',
       image: enMainImage,
       imageAlt: 'Tamareel video collection screen',
     },
     features: {
       title: 'Features built for video',
       lead: 'Unlike ordinary cloud storage, Tamareel combines smooth video playback with robust organization and editing tools.',
-      link: { label: 'Compare ways to store and watch your videos', href: '/en/blog/access-your-videos-anywhere/' },
       image: enScreenEditImage,
       imageAlt: 'Tamareel feature screen showing video playback and an editing timeline',
       items: [
@@ -108,6 +130,21 @@ export const landing: Record<Locale, LandingContent> = {
         { icon: '/images/icons/video_library_24px.svg', title: 'Powerful organization tools', description: 'Organize your videos with titles, tags, descriptions, playlists, and more.' },
         { icon: '/images/icons/lock_24px.svg', title: 'Your private collection', description: 'Video sharing is not available. Keep your personal collection securely stored.' },
         { icon: '/images/icons/content_cut_24px.svg', title: 'Simple editing tools', description: 'Select the ranges you want to play and create an edited video from your favorite scenes, right in your browser.' },
+      ],
+    },
+    trust: {
+      eyebrow: 'PRIVACY BY DESIGN',
+      title: 'Your videos stay yours.',
+      lead: 'Tamareel is built for you to store and watch your own videos—not to share them with others. Our privacy commitments are stated clearly in our Terms of Use and Privacy Policy.',
+      items: [
+        { number: '01', title: 'A private library just for you', description: 'Only the account that uploaded a video can view it. There are no sharing features, public links, or ways for third parties to search for or view your videos.' },
+        { number: '02', title: 'We do not review your videos', description: 'Except where required by law, we do not view, watch or listen to, monitor, or review the content of your videos.' },
+        { number: '03', title: 'Automated processing and safeguards', description: 'Storage, format analysis, conversion, and thumbnail generation are handled automatically by our systems. We also use safeguards such as encrypted communications, access controls, and log management.' },
+        { number: '04', title: 'You keep the rights to your content', description: 'Uploading a video does not transfer its rights to Tamareel. You grant only the permission needed to process it for the Service.' },
+      ],
+      links: [
+        { label: 'Read the Terms of Use', href: '/en/terms/' },
+        { label: 'Read the Privacy Policy', href: '/en/privacy/' },
       ],
     },
     steps: {

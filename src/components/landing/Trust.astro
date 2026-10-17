@@ -1,0 +1,31 @@
+---
+import type { LandingContent } from '../../data/landing';
+
+interface Props { content: NonNullable<LandingContent['trust']> }
+const { content } = Astro.props;
+---
+
+<section id="privacy" class="section trust-section">
+  <div class="container trust-layout">
+    <div class="trust-intro">
+      <p class="trust-eyebrow"><span aria-hidden="true"></span>{content.eyebrow}</p>
+      <h2>{content.title}</h2>
+      <p class="trust-lead">{content.lead}</p>
+      <div class="trust-links" aria-label="関連文書">
+        {content.links.map((link) => (
+          <a href={link.href}>{link.label}<span aria-hidden="true">→</span></a>
+        ))}
+      </div>
+    </div>
+
+    <div class="trust-points">
+      {content.items.map((item) => (
+        <article class="trust-point">
+          <span class="trust-number" aria-hidden="true">{item.number}</span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

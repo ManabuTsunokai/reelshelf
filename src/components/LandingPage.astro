@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from './landing/Hero.astro';
 import FeatureGrid from './landing/FeatureGrid.astro';
+import Trust from './landing/Trust.astro';
 import Steps from './landing/Steps.astro';
 import Resources from './landing/Resources.astro';
 import CallToAction from './CallToAction.astro';
@@ -29,6 +30,7 @@ const structuredData = [
 >
   <main id="top">
     <Hero content={content.hero} />
+    {content.trust && <Trust content={content.trust} />}
     <FeatureGrid content={content.features} />
     <Steps content={content.steps} />
     <Resources content={content.resources} />
