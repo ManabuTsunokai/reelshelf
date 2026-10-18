@@ -47,8 +47,8 @@ export type LandingContent = {
 export const landing: Record<Locale, LandingContent> = {
   ja: {
     seo: {
-      title: 'Tamareel | あなたの動画コレクションを、もっと身近に',
-      description: '大切な動画コレクションを、ひとつの場所に。Tamareelならアップロードから視聴まで、すっきり管理できます。',
+      title: 'Tamareel | 自分専用の非公開動画ライブラリ',
+      description: 'Tamareelは、プライバシーを重視した自分専用の非公開動画ライブラリです。動画を第三者へ公開・共有せず、保存・整理・再生・簡易編集まで行えます。',
       image: jaMainImage.src,
       imageAlt: 'Tamareelの動画コレクション画面',
     },
@@ -136,8 +136,8 @@ export const landing: Record<Locale, LandingContent> = {
   },
   en: {
     seo: {
-      title: 'Tamareel | Your video collection, closer to you',
-      description: 'Your personal video collection, all in one place. Upload, organize, and enjoy your videos with Tamareel.',
+      title: 'Tamareel | Your Private Video Library',
+      description: 'Tamareel is a privacy-focused video library for your personal use. Your videos are not published or shared with others, and you can store, organize, watch, and make simple edits in one place.',
       image: enMainImage.src,
       imageAlt: 'Tamareel video collection screen',
     },
