@@ -1,0 +1,38 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import type { LandingContent } from '../../data/landing';
+
+interface Props {
+  content: LandingContent['faq'];
+  entries: CollectionEntry<'faq'>[];
+}
+
+const { content, entries } = Astro.props;
+const items = await Promise.all(entries.map(async (entry) => ({
+  entry,
+  rendered: await render(entry),
+})));
+---
+
+<section id="faq" class="section faq-section">
+  <div class="container faq-layout">
+    <div class="section-intro faq-intro">
+      <h2>{content.title}</h2>
+      <p>{content.lead}</p>
+      <a class="section-link" href={content.contactHref}>
+        {content.contactLabel} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="faq-list">
+      {items.map(({ entry, rendered: { Content } }) => (
+        <details class="faq-item">
+          <summary>
+            <span>{entry.data.question}</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer"><Content /></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -36,6 +36,12 @@ export type LandingContent = {
     link: { label: string; href: string };
     items: Array<{ title: string; description: string }>;
   };
+  faq: {
+    title: string;
+    lead: string;
+    contactLabel: string;
+    contactHref: string;
+  };
   resources: {
     title: string;
     lead: string;
@@ -54,8 +60,8 @@ export const landing: Record<Locale, LandingContent> = {
     },
     hero: {
       eyebrow: 'YOUR VIDEO LIBRARY',
-      title: ['自分専用の', '動画配信サービス'],
-      lead: 'Tamareelは、自分専用の動画配信プラットフォームを構築できるクラウドサービスです。',
+      title: ['動画に特化した', 'プライベートクラウド'],
+      lead: 'Tamareelは、動画を非公開で保存・整理し、好きなときに楽しめる、自分専用のクラウドサービスです。',
       primary: '無料ではじめる',
       secondary: '詳しく見る',
       secondaryHref: '#privacy',
@@ -123,6 +129,12 @@ export const landing: Record<Locale, LandingContent> = {
         { title: '好きなときに観る', description: 'どこからでも自分の動画コレクションを楽しめます。' },
       ],
     },
+    faq: {
+      title: 'よくある質問',
+      lead: 'Tamareelを始める前に気になりやすい点をまとめました。',
+      contactLabel: '解決しない場合はお問い合わせください',
+      contactHref: '/contact/',
+    },
     resources: {
       title: 'もっと知る',
       lead: '動画に関する記事やTamareelの使い方を確認できます。ご質問やご要望もこちらからお寄せください。',
@@ -143,8 +155,8 @@ export const landing: Record<Locale, LandingContent> = {
     },
     hero: {
       eyebrow: 'YOUR VIDEO LIBRARY',
-      title: ['Your own', 'video streaming service'],
-      lead: 'Tamareel is a cloud service that lets you build your own private video streaming platform.',
+      title: ['A private cloud', 'built for video'],
+      lead: 'Tamareel is your personal cloud service for privately storing and organizing your videos, so you can enjoy them whenever you want.',
       primary: 'Start for free',
       secondary: 'Learn more',
       secondaryHref: '#privacy',
@@ -211,6 +223,12 @@ export const landing: Record<Locale, LandingContent> = {
         { title: 'Add the details', description: 'Enter titles, descriptions, and tags to make everything easier to find.' },
         { title: 'Watch anytime', description: 'Enjoy your personal video collection from wherever you are.' },
       ],
+    },
+    faq: {
+      title: 'Frequently asked questions',
+      lead: 'Find answers to common questions before getting started with Tamareel.',
+      contactLabel: 'Still have questions? Contact us',
+      contactHref: '/en/contact/',
     },
     resources: {
       title: 'Learn more',

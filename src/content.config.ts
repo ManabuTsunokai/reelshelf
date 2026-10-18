@@ -45,4 +45,13 @@ const legal = defineCollection({
   }),
 });
 
-export const collections = { help, blog, legal };
+const faq = defineCollection({
+  loader: glob({ base: './src/content/faq', pattern: '**/*.md' }),
+  schema: z.object({
+    question: z.string(),
+    locale,
+    order: z.number().int().positive(),
+  }),
+});
+
+export const collections = { help, blog, legal, faq };
