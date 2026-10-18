@@ -13,26 +13,64 @@ const { content } = Astro.props;
       <p>{content.lead}</p>
       {content.link && <a class="section-link" href={content.link.href}>{content.link.label} <span aria-hidden="true">→</span></a>}
     </div>
-    <div class="features features-primary">
+    <div class="feature-stories">
       {content.items.map((item) => (
-        <article class="feature">
-          <div class="feature-icon"><img src={item.icon} width="24" height="24" alt="" /></div>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
+        <article class="feature-story">
+          <div class="feature-story-copy">
+            <div class="feature-story-meta">
+              <div class="feature-icon"><img src={item.icon} width="24" height="24" alt="" /></div>
+              <span>FEATURE {item.number}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <ul>
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+          </div>
+          <div class:list={['feature-story-media', { 'feature-story-media-contain': item.video?.fit === 'contain' || item.image }]}>
+            {item.video ? (
+              <video
+                class:list={['feature-story-video', { 'feature-story-video-contain': item.video.fit === 'contain' }]}
+                src={item.video.src}
+                aria-label={item.video.ariaLabel}
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+            ) : item.image ? (
+              <div class="feature-story-image">
+                <Picture
+                  src={item.image.src}
+                  formats={['avif', 'webp']}
+                  widths={[480, 720, 1200]}
+                  sizes="(max-width: 900px) calc(100vw - 34px), 640px"
+                  quality={82}
+                  loading="lazy"
+                  decoding="async"
+                  alt={item.image.alt}
+                />
+              </div>
+            ) : (
+              <div
+                class="feature-placeholder"
+                role="img"
+                aria-label={`${item.placeholderTitle}：${item.placeholderDescription}`}
+              >
+                <div class="feature-placeholder-bar" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="feature-placeholder-content">
+                  <img src={item.icon} width="28" height="28" alt="" />
+                  <strong>{item.placeholderTitle}</strong>
+                  <p>{item.placeholderDescription}</p>
+                </div>
+              </div>
+            )}
+          </div>
         </article>
       ))}
-    </div>
-    <div class="features-visual">
-      <Picture
-        src={content.image}
-        formats={['avif', 'webp']}
-        widths={[480, 720, 1440]}
-        sizes="(max-width: 760px) calc(100vw - 46px), 720px"
-        quality={75}
-        loading="lazy"
-        decoding="async"
-        alt={content.imageAlt}
-      />
     </div>
   </div>
 </section>

@@ -1,9 +1,8 @@
 import type { ImageMetadata } from 'astro';
 import type { Locale } from '../lib/i18n';
 import enMainImage from '../assets/images/en/main.png';
-import enScreenEditImage from '../assets/images/en/screen_edit.png';
+import editingScreenImage from '../assets/images/features/editing-screen.png';
 import jaMainImage from '../assets/images/ja/main.png';
-import jaScreenEditImage from '../assets/images/ja/screen_edit.png';
 
 export type LandingContent = {
   seo: { title: string; description: string; image: string; imageAlt: string };
@@ -12,9 +11,17 @@ export type LandingContent = {
     title: string;
     lead: string;
     link?: { label: string; href: string };
-    image: ImageMetadata;
-    imageAlt: string;
-    items: Array<{ icon: string; title: string; description: string }>;
+    items: Array<{
+      number: string;
+      icon: string;
+      title: string;
+      description: string;
+      details: string[];
+      placeholderTitle: string;
+      placeholderDescription: string;
+      video?: { src: string; ariaLabel: string; fit?: 'contain' };
+      image?: { src: ImageMetadata; alt: string };
+    }>;
   };
   trust?: {
     eyebrow: string;
@@ -58,13 +65,37 @@ export const landing: Record<Locale, LandingContent> = {
     features: {
       title: '動画に特化した機能',
       lead: 'ただのクラウドストレージと違い、動画のスムーズな再生と充実した整理・編集機能が特徴です。',
-      image: jaScreenEditImage,
-      imageAlt: '動画の再生画面とタイムラインを表示したTamareelの機能画面',
       items: [
-        { icon: '/images/icons/play_arrow_24px.svg', title: 'スムーズな再生', description: 'パソコンでもスマートフォンでも、動画の好きなシーンからすぐ再生できます。' },
-        { icon: '/images/icons/video_library_24px.svg', title: '充実した整理機能', description: 'タイトル、タグ、説明、プレイリストなど、動画を整理する機能が充実しています。' },
-        { icon: '/images/icons/lock_24px.svg', title: '自分専用のコレクション', description: '動画の共有機能はありません。自分専用のコレクションを安全に保管します。' },
-        { icon: '/images/icons/content_cut_24px.svg', title: '手軽な編集機能', description: '再生したい範囲を指定して、必要なシーンをまとめた編集動画をブラウザ上で作れます。' },
+        {
+          number: '01',
+          icon: '/images/icons/play_arrow_24px.svg',
+          title: 'スムーズな再生',
+          description: 'アップロードした動画は、パソコンやスマートフォンのブラウザからすぐに視聴できます。長い動画でもタイムラインを操作して、見たい場面から再生できます。',
+          details: ['ブラウザからそのまま再生', 'タイムラインから見たい場面へ移動', 'パソコン・スマートフォンに対応'],
+          placeholderTitle: '再生画面のスクリーンキャプチャ',
+          placeholderDescription: '動画プレーヤーとタイムラインが見え、動画の途中の場面へ移動している状態',
+          video: { src: '/videos/smooth-playback-demo.mp4', ariaLabel: 'Tamareelで動画を再生し、タイムラインを操作するデモ' },
+        },
+        {
+          number: '02',
+          icon: '/images/icons/video_library_24px.svg',
+          title: '充実した整理機能',
+          description: 'タイトルや説明、タグを登録して、増えていく動画を分かりやすく整理できます。シリーズやプレイリストにまとめれば、目的に合わせて見たい動画をすぐに探せます。',
+          details: ['タイトル・説明・タグで検索', 'シリーズごとに動画を整理', 'プレイリストに好きな動画をまとめる'],
+          placeholderTitle: '動画一覧・検索画面のスクリーンキャプチャ',
+          placeholderDescription: '「タグ: 2026」で絞り込まれた動画一覧と、シリーズ・プレイリストのメニューが見える状態',
+          video: { src: '/videos/organization-search-demo.mp4', ariaLabel: 'Tamareelで動画を検索し、シリーズを表示するデモ', fit: 'contain' },
+        },
+        {
+          number: '03',
+          icon: '/images/icons/content_cut_24px.svg',
+          title: '手軽な編集機能',
+          description: '動画の再生範囲を指定し、必要なシーンをまとめた編集動画をブラウザ上で作成できます。専用の編集ソフトを立ち上げず、視聴しながら手軽に操作できます。',
+          details: ['開始位置と終了位置をタイムラインで指定', '必要なシーンだけをひとつにまとめる', 'ブラウザ上で編集操作が完結'],
+          placeholderTitle: '編集画面のスクリーンキャプチャ',
+          placeholderDescription: '動画プレーヤー、範囲指定されたタイムライン、複数の編集区間が見える状態',
+          image: { src: editingScreenImage, alt: 'Tamareelの動画編集画面' },
+        },
       ],
     },
     trust: {
@@ -75,7 +106,7 @@ export const landing: Record<Locale, LandingContent> = {
         { number: '01', title: 'あなた専用の非公開ライブラリ', description: '動画を閲覧できるのは、アップロードした本人のアカウントだけ。共有機能や公開リンク、第三者が検索・閲覧できる機能はありません。' },
         { number: '02', title: '動画の内容を確認しません', description: '法令上必要な場合を除き、運営者が動画の内容を閲覧、視聴、監視または審査することはありません。' },
         { number: '03', title: '自動処理と安全管理', description: '保存、形式解析、変換、サムネイル生成などは情報システムが自動で処理。通信の暗号化、アクセス制御、ログ管理などの安全管理措置も講じています。' },
-        { number: '04', title: 'コンテンツの権利はあなたのまま', description: 'アップロードした動画の権利がTamareelへ移ることはありません。サービス提供に必要な範囲だけ、処理の許諾をいただきます。' },
+        { number: '04', title: '動画の権利はあなたのまま', description: 'アップロードした動画の権利がTamareelへ移ることはありません。サービス提供に必要な範囲だけ、処理の許諾をいただきます。' },
       ],
       links: [
         { label: '利用規約を読む', href: '/terms/' },
@@ -123,13 +154,37 @@ export const landing: Record<Locale, LandingContent> = {
     features: {
       title: 'Features built for video',
       lead: 'Unlike ordinary cloud storage, Tamareel combines smooth video playback with robust organization and editing tools.',
-      image: enScreenEditImage,
-      imageAlt: 'Tamareel feature screen showing video playback and an editing timeline',
       items: [
-        { icon: '/images/icons/play_arrow_24px.svg', title: 'Smooth playback', description: 'On your computer or smartphone, jump straight to any scene in your videos.' },
-        { icon: '/images/icons/video_library_24px.svg', title: 'Powerful organization tools', description: 'Organize your videos with titles, tags, descriptions, playlists, and more.' },
-        { icon: '/images/icons/lock_24px.svg', title: 'Your private collection', description: 'Video sharing is not available. Keep your personal collection securely stored.' },
-        { icon: '/images/icons/content_cut_24px.svg', title: 'Simple editing tools', description: 'Select the ranges you want to play and create an edited video from your favorite scenes, right in your browser.' },
+        {
+          number: '01',
+          icon: '/images/icons/play_arrow_24px.svg',
+          title: 'Smooth playback',
+          description: 'Watch uploaded videos directly in your browser on a computer or smartphone. Even in a long video, use the timeline to jump straight to the scene you want to see.',
+          details: ['Play directly in your browser', 'Jump to any scene from the timeline', 'Works on computers and smartphones'],
+          placeholderTitle: 'Playback screen capture',
+          placeholderDescription: 'Show the video player and timeline while moving to a scene partway through the video.',
+          video: { src: '/videos/smooth-playback-demo.mp4', ariaLabel: 'Demo of playing a video and using the timeline in Tamareel' },
+        },
+        {
+          number: '02',
+          icon: '/images/icons/video_library_24px.svg',
+          title: 'Powerful organization tools',
+          description: 'Keep a growing collection easy to navigate with titles, descriptions, and tags. Group videos into series and playlists so you can quickly find what you want to watch.',
+          details: ['Search by title, description, and tag', 'Organize related videos into series', 'Collect favorite videos in playlists'],
+          placeholderTitle: 'Video library and search screen capture',
+          placeholderDescription: 'Show a video library filtered by “Tag: 2026,” with the Series and Playlists navigation visible.',
+          video: { src: '/videos/organization-search-demo.mp4', ariaLabel: 'Demo of searching videos and opening a series in Tamareel', fit: 'contain' },
+        },
+        {
+          number: '03',
+          icon: '/images/icons/content_cut_24px.svg',
+          title: 'Simple editing tools',
+          description: 'Choose the ranges you want to play and combine the scenes you need into an edited video. Make simple edits while watching, without opening separate editing software.',
+          details: ['Set start and end points on the timeline', 'Combine only the scenes you need', 'Complete the editing flow in your browser'],
+          placeholderTitle: 'Editing screen capture',
+          placeholderDescription: 'Show the video player, a timeline with selected ranges, and multiple edit segments.',
+          image: { src: editingScreenImage, alt: 'Tamareel video editing screen' },
+        },
       ],
     },
     trust: {

@@ -17,7 +17,7 @@ export const ui = {
     home: 'ホーム',
     help: 'ヘルプ',
     blog: 'ブログ',
-    features: 'できること',
+    features: '特徴',
     howItWorks: '使い方',
     getStarted: '無料ではじめる',
     learnMore: '詳しく見る',
