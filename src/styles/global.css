@@ -81,7 +81,10 @@ h2 { margin:0; font-size:clamp(2rem,3.6vw,3.1rem); line-height:1.2; letter-spaci
 .step { position:relative; }
 .step:not(:last-child)::after { content:""; position:absolute; top:20px; left:54px; width:calc(100% - 14px); border-top:1px solid #d5dbd7; }
 .number { display:grid; place-items:center; position:relative; z-index:1; width:42px; height:42px; margin-bottom:19px; border-radius:50%; background:var(--ink); color:#fff; font-size:.83rem; font-weight:800; }
-.step h3 { margin:0 0 6px; font-size:1.03rem; }
+.step-heading { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.step-icon { display:grid; place-items:center; flex:0 0 auto; width:38px; height:38px; border-radius:11px; background:#e7f7ed; }
+.step-icon img { display:block; width:22px; height:22px; }
+.step h3 { margin:0; font-size:1.03rem; }
 .step p { max-width:270px; margin:0; color:var(--muted); font-size:.9rem; }
 .faq-section { border-top:1px solid var(--line); }
 .faq-layout { display:grid; grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr); gap:clamp(54px,8vw,112px); align-items:start; }
@@ -214,6 +217,7 @@ footer { padding:25px 0 35px; border-top:1px solid var(--line); }
 .article-prose > h2 { padding-top:34px; font-size:1.52rem; letter-spacing:-.035em; }
 .prose h3 { margin:24px 0 0; font-size:1rem; }
 .prose p { margin:15px 0 0; line-height:1.9; }
+.prose img { display:block; width:100%; height:auto; margin:20px 0 0; border:1px solid var(--line); border-radius:14px; }
 .prose ol,.prose ul { margin:15px 0 0; padding-left:1.45em; }
 .prose li + li { margin-top:10px; }
 .prose a { color:var(--green-dark); font-weight:700; text-decoration:underline; text-underline-offset:3px; }

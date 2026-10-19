@@ -26,6 +26,11 @@ const { content } = Astro.props;
             <ul>
               {item.details.map((detail) => <li>{detail}</li>)}
             </ul>
+            {item.link && (
+              <a class="section-link" href={item.link.href}>
+                {item.link.label} <span aria-hidden="true">→</span>
+              </a>
+            )}
           </div>
           <div class:list={['feature-story-media', { 'feature-story-media-contain': item.video?.fit === 'contain' || item.image }]}>
             {item.video ? (

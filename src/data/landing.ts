@@ -17,6 +17,7 @@ export type LandingContent = {
       title: string;
       description: string;
       details: string[];
+      link?: { label: string; href: string };
       placeholderTitle: string;
       placeholderDescription: string;
       video?: { src: string; ariaLabel: string; fit?: 'contain' };
@@ -34,7 +35,7 @@ export type LandingContent = {
     title: string;
     lead: string;
     link: { label: string; href: string };
-    items: Array<{ title: string; description: string }>;
+    items: Array<{ icon: string; title: string; description: string }>;
   };
   faq: {
     title: string;
@@ -70,7 +71,7 @@ export const landing: Record<Locale, LandingContent> = {
     },
     features: {
       title: '動画に特化した機能',
-      lead: 'ただのクラウドストレージと違い、動画のスムーズな再生と充実した整理・編集機能が特徴です。',
+      lead: '動画の保管にとどまらず、快適な視聴から整理・編集までをひとつにまとめました。',
       items: [
         {
           number: '01',
@@ -98,6 +99,7 @@ export const landing: Record<Locale, LandingContent> = {
           title: '手軽な編集機能',
           description: '動画の再生範囲を指定し、必要なシーンをまとめた編集動画をブラウザ上で作成できます。専用の編集ソフトを立ち上げず、視聴しながら手軽に操作できます。',
           details: ['開始位置と終了位置をタイムラインで指定', '必要なシーンだけをひとつにまとめる', 'ブラウザ上で編集操作が完結'],
+          link: { label: '動画編集について詳しく見る', href: '/help/editing-videos/' },
           placeholderTitle: '編集画面のスクリーンキャプチャ',
           placeholderDescription: '動画プレーヤー、範囲指定されたタイムライン、複数の編集区間が見える状態',
           image: { src: editingScreenImage, alt: 'Tamareelの動画編集画面' },
@@ -124,9 +126,9 @@ export const landing: Record<Locale, LandingContent> = {
       lead: '複雑な設定は不要。クレジットカード情報を登録せずに、無料トライアルをすぐに始められます。',
       link: { label: 'トライアルと有料プランの詳細を見る', href: '/help/plans/' },
       items: [
-        { title: '動画を追加する', description: '手元にある動画をアップロードします。' },
-        { title: '情報を整える', description: 'タイトルや説明、タグを登録して、見つけやすくします。' },
-        { title: '好きなときに観る', description: 'どこからでも自分の動画コレクションを楽しめます。' },
+        { icon: '/images/icons/upload_video_24px.svg', title: '動画を追加する', description: '手元にある動画をアップロードします。' },
+        { icon: '/images/icons/tag_24px.svg', title: '情報を整える', description: 'タイトルや説明、タグを登録して、見つけやすくします。' },
+        { icon: '/images/icons/watch_video_24px.svg', title: '好きなときに観る', description: 'どこからでも自分の動画コレクションを楽しめます。' },
       ],
     },
     faq: {
@@ -165,7 +167,7 @@ export const landing: Record<Locale, LandingContent> = {
     },
     features: {
       title: 'Features built for video',
-      lead: 'Unlike ordinary cloud storage, Tamareel combines smooth video playback with robust organization and editing tools.',
+      lead: 'Beyond simply storing your videos, Tamareel brings seamless viewing, organization, and editing together in one place.',
       items: [
         {
           number: '01',
@@ -193,6 +195,7 @@ export const landing: Record<Locale, LandingContent> = {
           title: 'Simple editing tools',
           description: 'Choose the ranges you want to play and combine the scenes you need into an edited video. Make simple edits while watching, without opening separate editing software.',
           details: ['Set start and end points on the timeline', 'Combine only the scenes you need', 'Complete the editing flow in your browser'],
+          link: { label: 'Learn more about video editing', href: '/en/help/editing-videos/' },
           placeholderTitle: 'Editing screen capture',
           placeholderDescription: 'Show the video player, a timeline with selected ranges, and multiple edit segments.',
           image: { src: editingScreenImage, alt: 'Tamareel video editing screen' },
@@ -219,9 +222,9 @@ export const landing: Record<Locale, LandingContent> = {
       lead: 'No complex setup or credit card details are required. Start your free trial right away.',
       link: { label: 'View trial and paid plan details', href: '/en/help/plans/' },
       items: [
-        { title: 'Add your videos', description: 'Upload the videos you already have.' },
-        { title: 'Add the details', description: 'Enter titles, descriptions, and tags to make everything easier to find.' },
-        { title: 'Watch anytime', description: 'Enjoy your personal video collection from wherever you are.' },
+        { icon: '/images/icons/upload_video_24px.svg', title: 'Add your videos', description: 'Upload the videos you already have.' },
+        { icon: '/images/icons/tag_24px.svg', title: 'Add the details', description: 'Enter titles, descriptions, and tags to make everything easier to find.' },
+        { icon: '/images/icons/watch_video_24px.svg', title: 'Watch anytime', description: 'Enjoy your personal video collection from wherever you are.' },
       ],
     },
     faq: {

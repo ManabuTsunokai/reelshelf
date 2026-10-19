@@ -16,7 +16,12 @@ const { content } = Astro.props;
       {content.items.map((item, index) => (
         <article class="step">
           <div class="number">{String(index + 1).padStart(2, '0')}</div>
-          <h3>{item.title}</h3>
+          <div class="step-heading">
+            <span class="step-icon" aria-hidden="true">
+              <img src={item.icon} alt="" />
+            </span>
+            <h3>{item.title}</h3>
+          </div>
           <p>{item.description}</p>
         </article>
       ))}
