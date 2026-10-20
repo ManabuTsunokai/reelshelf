@@ -217,7 +217,7 @@ footer { padding:25px 0 35px; border-top:1px solid var(--line); }
 .article-prose > h2 { padding-top:34px; font-size:1.52rem; letter-spacing:-.035em; }
 .prose h3 { margin:24px 0 0; font-size:1rem; }
 .prose p { margin:15px 0 0; line-height:1.9; }
-.prose img { display:block; width:100%; height:auto; margin:20px 0 0; border:1px solid var(--line); border-radius:14px; }
+.prose img,.prose video { display:block; width:100%; height:auto; margin:20px 0 0; border:1px solid var(--line); border-radius:14px; }
 .prose ol,.prose ul { margin:15px 0 0; padding-left:1.45em; }
 .prose li + li { margin-top:10px; }
 .prose a { color:var(--green-dark); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
