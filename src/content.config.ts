@@ -23,6 +23,10 @@ const blog = defineCollection({
     seoTitle: z.string(),
     description: z.string(),
     lead: z.string(),
+    leadLink: z.object({
+      text: z.string(),
+      href: z.string(),
+    }).optional(),
     eyebrow: z.string(),
     eyecatch: image().optional(),
     eyecatchAlt: z.string().optional(),

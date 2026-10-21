@@ -10,7 +10,8 @@ import { formatDate, localizedPath, slugFromId, ui } from '../lib/i18n';
 interface Props { entry: CollectionEntry<'blog'> }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { locale, title, seoTitle, description, lead, eyebrow, eyecatch, eyecatchAlt, author, publishedAt, updatedAt } = entry.data;
+const { locale, title, seoTitle, description, lead, leadLink, eyebrow, eyecatch, eyecatchAlt, author, publishedAt, updatedAt } = entry.data;
+const leadLinkIndex = leadLink ? lead.indexOf(leadLink.text) : -1;
 const slug = slugFromId(entry.id);
 const translations = (await getCollection('blog', (article) => slugFromId(article.id) === slug))
   .map((article) => article.data.locale);
@@ -37,7 +38,11 @@ const structuredData = [
       <Eyebrow label={eyebrow} />
       <h1>{title}</h1>
       <p class="article-byline">{t.writtenBy} <strong>{author}</strong><span aria-hidden="true"> · </span>{t.publishedAndUpdated}: {formatDate(updatedAt, locale)}</p>
-      <p class="article-lead">{lead}</p>
+      <p class="article-lead">
+        {leadLink && leadLinkIndex >= 0 ? (
+          <>{lead.slice(0, leadLinkIndex)}<a href={leadLink.href}>{leadLink.text}</a>{lead.slice(leadLinkIndex + leadLink.text.length)}</>
+        ) : lead}
+      </p>
       <div class="prose article-prose"><Content /></div>
     </article>
   </main>

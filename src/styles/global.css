@@ -197,6 +197,7 @@ footer { padding:25px 0 35px; border-top:1px solid var(--line); }
 .article-container { width:min(860px,calc(100% - 48px)); }
 .article-page h1 { max-width:none; font-size:clamp(2.5rem,5vw,4rem); }
 .article-lead { max-width:680px; margin:22px 0 45px; color:#434b48; font-size:1.06rem; line-height:1.9; }
+.article-lead a { color:var(--green-dark); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
 .article-byline { margin:16px 0 0; color:var(--muted) !important; font-size:.88rem; }
 .article-byline span { color:#434b48; font-weight:800; }
 .article-page p { color:#434b48; }
