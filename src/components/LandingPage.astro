@@ -35,10 +35,10 @@ const structuredData = [
 >
   <main id="top">
     <Hero content={content.hero} locale={locale} />
-    <Plans content={content.plans} locale={locale} />
     <FeatureGrid content={content.features} />
     {content.trust && <Trust content={content.trust} />}
     <Steps content={content.steps} />
+    <Plans content={content.plans} locale={locale} />
     <Faq content={content.faq} entries={faqEntries} />
     <Resources content={content.resources} />
     <CallToAction {...content.cta} locale={locale} />
