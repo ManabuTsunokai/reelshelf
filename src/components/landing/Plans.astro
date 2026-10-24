@@ -1,0 +1,48 @@
+---
+import type { LandingContent } from '../../data/landing';
+import { site } from '../../data/site';
+
+interface Props { content: LandingContent['plans'] }
+const { content } = Astro.props;
+---
+
+<section id="plans" class="section plans-section">
+  <div class="container">
+    <div class="section-intro">
+      <h2>{content.title}</h2>
+      <p>{content.lead}</p>
+    </div>
+    <div class="plans-cta">
+      <a class="button" href={site.signupUrl} data-ga-cta-location="plans">
+        {content.ctaLabel} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="landing-plan-table-wrap">
+      <table class="landing-plan-table">
+        <thead>
+          <tr>
+            <th scope="col">{content.headers.name}</th>
+            <th scope="col">{content.headers.price}</th>
+            <th scope="col">{content.headers.storage}</th>
+            <th scope="col">{content.headers.note}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {content.items.map((item) => (
+            <tr>
+              <th scope="row">{item.name}</th>
+              <td>{item.price}</td>
+              <td>{item.storage}</td>
+              <td>{item.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="plans-actions">
+      <a class="section-link" href={content.link.href}>
+        {content.link.label} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

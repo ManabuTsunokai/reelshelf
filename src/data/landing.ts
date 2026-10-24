@@ -7,6 +7,14 @@ import jaMainImage from '../assets/images/ja/main.png';
 export type LandingContent = {
   seo: { title: string; description: string; image: string; imageAlt: string };
   hero: { eyebrow: string; title: string[]; lead: string; primary: string; secondary: string; secondaryHref: string; image: ImageMetadata; imageAlt: string };
+  plans: {
+    title: string;
+    lead: string;
+    headers: { name: string; price: string; storage: string; note: string };
+    items: Array<{ name: string; price: string; storage: string; note: string }>;
+    ctaLabel: string;
+    link: { label: string; href: string };
+  };
   features: {
     title: string;
     lead: string;
@@ -34,7 +42,6 @@ export type LandingContent = {
   steps: {
     title: string;
     lead: string;
-    link: { label: string; href: string };
     items: Array<{ icon: string; title: string; description: string }>;
   };
   faq: {
@@ -65,9 +72,21 @@ export const landing: Record<Locale, LandingContent> = {
       lead: 'Tamareelは、動画を非公開で保存・整理し、好きなときに楽しめる、自分専用のクラウドサービスです。',
       primary: '無料ではじめる',
       secondary: '詳しく見る',
-      secondaryHref: '#privacy',
+      secondaryHref: '#features',
       image: jaMainImage,
       imageAlt: 'Tamareelの動画コレクション画面',
+    },
+    plans: {
+      title: 'まずは無料で、お試しください',
+      lead: 'クレジットカード情報を登録せずに、無料トライアルをすぐに始められます。トライアル期間を過ぎても自動的に課金されることはありません。',
+      headers: { name: 'プラン', price: '月額料金', storage: '保存容量', note: '備考' },
+      items: [
+        { name: '無料', price: '$0', storage: '10 GiB', note: 'アップロード14日間・視聴30日間。データは60日間保持されます。' },
+        { name: 'Basic', price: '$3.75', storage: '100 GiB', note: '契約期間中利用可能' },
+        { name: 'Plus', price: '$31.25', storage: '1 TiB', note: '契約期間中利用可能' },
+      ],
+      ctaLabel: '無料ではじめる',
+      link: { label: '詳細はトライアルと有料プランをご確認ください', href: '/help/plans/' },
     },
     features: {
       title: '動画に特化した機能',
@@ -124,8 +143,7 @@ export const landing: Record<Locale, LandingContent> = {
     },
     steps: {
       title: '使い方はとても簡単',
-      lead: '複雑な設定は不要。クレジットカード情報を登録せずに、無料トライアルをすぐに始められます。',
-      link: { label: 'トライアルと有料プランの詳細を見る', href: '/help/plans/' },
+      lead: '動画をアップロードし、タイトルやタグで整理すれば、パソコンやスマートフォンからいつでも見返せます。',
       items: [
         { icon: '/images/icons/upload_video_24px.svg', title: '動画を追加する', description: '手元にある動画をアップロードします。' },
         { icon: '/images/icons/tag_24px.svg', title: '情報を整える', description: 'タイトルや説明、タグを登録して、見つけやすくします。' },
@@ -162,9 +180,21 @@ export const landing: Record<Locale, LandingContent> = {
       lead: 'Tamareel is your personal cloud service for privately storing and organizing your videos, so you can enjoy them whenever you want.',
       primary: 'Start for free',
       secondary: 'Learn more',
-      secondaryHref: '#privacy',
+      secondaryHref: '#features',
       image: enMainImage,
       imageAlt: 'Tamareel video collection screen',
+    },
+    plans: {
+      title: 'Try it for free',
+      lead: 'Start your free trial without entering credit card details. You will not be charged automatically after the trial period ends.',
+      headers: { name: 'Plan', price: 'Monthly price', storage: 'Storage', note: 'Notes' },
+      items: [
+        { name: 'Free', price: '$0', storage: '10 GiB', note: 'Upload for 14 days and watch for 30 days. Data is retained for 60 days.' },
+        { name: 'Basic', price: '$3.75', storage: '100 GiB', note: 'Available while subscribed' },
+        { name: 'Plus', price: '$31.25', storage: '1 TiB', note: 'Available while subscribed' },
+      ],
+      ctaLabel: 'Start for free',
+      link: { label: 'See trial and paid plan details', href: '/en/help/plans/' },
     },
     features: {
       title: 'Features built for video',
@@ -221,8 +251,7 @@ export const landing: Record<Locale, LandingContent> = {
     },
     steps: {
       title: 'Getting started is easy',
-      lead: 'No complex setup or credit card details are required. Start your free trial right away.',
-      link: { label: 'View trial and paid plan details', href: '/en/help/plans/' },
+      lead: 'Upload your videos, add titles and tags, and watch them anytime from your computer or smartphone.',
       items: [
         { icon: '/images/icons/upload_video_24px.svg', title: 'Add your videos', description: 'Upload the videos you already have.' },
         { icon: '/images/icons/tag_24px.svg', title: 'Add the details', description: 'Enter titles, descriptions, and tags to make everything easier to find.' },

@@ -10,7 +10,6 @@ const { content } = Astro.props;
     <div class="section-intro">
       <h2>{content.title}</h2>
       <p>{content.lead}</p>
-      <a class="section-link" href={content.link.href}>{content.link.label} <span aria-hidden="true">→</span></a>
     </div>
     <div class="steps">
       {content.items.map((item, index) => (

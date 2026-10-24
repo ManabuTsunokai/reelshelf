@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from './landing/Hero.astro';
+import Plans from './landing/Plans.astro';
 import FeatureGrid from './landing/FeatureGrid.astro';
 import Trust from './landing/Trust.astro';
 import Steps from './landing/Steps.astro';
@@ -34,8 +35,9 @@ const structuredData = [
 >
   <main id="top">
     <Hero content={content.hero} />
-    {content.trust && <Trust content={content.trust} />}
+    <Plans content={content.plans} />
     <FeatureGrid content={content.features} />
+    {content.trust && <Trust content={content.trust} />}
     <Steps content={content.steps} />
     <Faq content={content.faq} entries={faqEntries} />
     <Resources content={content.resources} />
