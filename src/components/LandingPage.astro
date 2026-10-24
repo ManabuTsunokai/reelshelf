@@ -34,13 +34,13 @@ const structuredData = [
   structuredData={structuredData}
 >
   <main id="top">
-    <Hero content={content.hero} />
-    <Plans content={content.plans} />
+    <Hero content={content.hero} locale={locale} />
+    <Plans content={content.plans} locale={locale} />
     <FeatureGrid content={content.features} />
     {content.trust && <Trust content={content.trust} />}
     <Steps content={content.steps} />
     <Faq content={content.faq} entries={faqEntries} />
     <Resources content={content.resources} />
-    <CallToAction {...content.cta} />
+    <CallToAction {...content.cta} locale={locale} />
   </main>
 </BaseLayout>

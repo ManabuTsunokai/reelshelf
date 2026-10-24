@@ -1,11 +1,15 @@
 ---
 import { Picture } from 'astro:assets';
 import type { LandingContent } from '../../data/landing';
-import { site } from '../../data/site';
+import { getSignupUrl } from '../../data/site';
+import type { Locale } from '../../lib/i18n';
 import Eyebrow from '../Eyebrow.astro';
 
-interface Props { content: LandingContent['hero'] }
-const { content } = Astro.props;
+interface Props {
+  content: LandingContent['hero'];
+  locale: Locale;
+}
+const { content, locale } = Astro.props;
 ---
 
 <section class="hero">
@@ -15,7 +19,7 @@ const { content } = Astro.props;
       <h1>{content.title.map((line, index) => <>{index > 0 && <br />}{line}</>)}</h1>
       <p class="lead">{content.lead}</p>
       <div class="hero-actions">
-        <a class="button" href={site.signupUrl} data-ga-cta-location="hero">{content.primary} <span aria-hidden="true">→</span></a>
+        <a class="button" href={getSignupUrl(locale)} data-ga-cta-location="hero">{content.primary} <span aria-hidden="true">→</span></a>
         <a class="button button-secondary" href={content.secondaryHref}>{content.secondary}</a>
       </div>
     </div>

@@ -1,9 +1,13 @@
 ---
 import type { LandingContent } from '../../data/landing';
-import { site } from '../../data/site';
+import { getSignupUrl } from '../../data/site';
+import type { Locale } from '../../lib/i18n';
 
-interface Props { content: LandingContent['plans'] }
-const { content } = Astro.props;
+interface Props {
+  content: LandingContent['plans'];
+  locale: Locale;
+}
+const { content, locale } = Astro.props;
 ---
 
 <section id="plans" class="section plans-section">
@@ -13,7 +17,7 @@ const { content } = Astro.props;
       <p>{content.lead}</p>
     </div>
     <div class="plans-cta">
-      <a class="button" href={site.signupUrl} data-ga-cta-location="plans">
+      <a class="button" href={getSignupUrl(locale)} data-ga-cta-location="plans">
         {content.ctaLabel} <span aria-hidden="true">→</span>
       </a>
     </div>

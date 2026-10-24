@@ -1,6 +1,6 @@
 ---
 import { localizedPath, otherLocale, type Locale, ui } from '../lib/i18n';
-import { site } from '../data/site';
+import { getSignupUrl } from '../data/site';
 
 interface Props {
   locale: Locale;
@@ -37,7 +37,7 @@ const home = localizedPath(locale);
       {translations.includes(alternate) && (
         <a href={localizedPath(alternate, path)} lang={alternate}>{t.language}</a>
       )}
-      <a class="nav-cta" href={site.signupUrl} data-ga-cta-location="header">{t.getStarted}</a>
+      <a class="nav-cta" href={getSignupUrl(locale)} data-ga-cta-location="header">{t.getStarted}</a>
     </nav>
   </header>
 </div>

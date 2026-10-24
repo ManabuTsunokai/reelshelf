@@ -1,7 +1,9 @@
 ---
-import { site } from '../data/site';
+import { getSignupUrl } from '../data/site';
+import type { Locale } from '../lib/i18n';
 
 interface Props {
+  locale: Locale;
   title: string[];
   lead: string;
   label: string;
@@ -15,13 +17,15 @@ interface Props {
 }
 
 const {
+  locale,
   title,
   lead,
   label,
-  href = site.signupUrl,
+  href,
   trackingLocation = 'bottom',
   secondary,
 } = Astro.props;
+const resolvedHref = href ?? getSignupUrl(locale);
 ---
 
 <section class="cta">
@@ -30,7 +34,7 @@ const {
       <h2>{title.map((line, index) => <>{index > 0 && <br />}{line}</>)}</h2>
       <p>{lead}</p>
       <div class="cta-actions">
-        <a class="button" href={href} data-ga-cta-location={trackingLocation}>{label} <span aria-hidden="true">→</span></a>
+        <a class="button" href={resolvedHref} data-ga-cta-location={trackingLocation}>{label} <span aria-hidden="true">→</span></a>
         {secondary && (
           <a
             class="cta-secondary-link"
