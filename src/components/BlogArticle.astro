@@ -13,7 +13,7 @@ const { Content } = await render(entry);
 const { locale, title, seoTitle, description, lead, leadLink, eyebrow, eyecatch, eyecatchAlt, author, publishedAt, updatedAt } = entry.data;
 const leadLinkIndex = leadLink ? lead.indexOf(leadLink.text) : -1;
 const slug = slugFromId(entry.id);
-const translations = (await getCollection('blog', (article) => slugFromId(article.id) === slug))
+const translations = (await getCollection('blog', (article) => article.data.published && slugFromId(article.id) === slug))
   .map((article) => article.data.locale);
 const t = ui[locale];
 const path = `/blog/${slug}/`;

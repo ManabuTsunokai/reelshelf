@@ -6,6 +6,7 @@ lead: "DVDをパソコンで開くと、MP4のような動画ファイルでは�
 eyebrow: "VIDEO BASICS"
 locale: ja
 author: "@yanakadev"
+published: false
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 ---

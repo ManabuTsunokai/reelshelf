@@ -6,6 +6,7 @@ lead: "Open a DVD on a computer and, instead of an MP4 video, you will find a VI
 eyebrow: "VIDEO BASICS"
 locale: en
 author: "@yanakadev"
+published: false
 publishedAt: 2026-10-06
 updatedAt: 2026-10-06
 ---

@@ -8,7 +8,7 @@ import { localizedPath, slugFromId, type Locale, ui } from '../lib/i18n';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = ui[locale];
-const articles = (await getCollection('blog', ({ data }) => data.locale === locale))
+const articles = (await getCollection('blog', ({ data }) => data.locale === locale && data.published))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 ---
 

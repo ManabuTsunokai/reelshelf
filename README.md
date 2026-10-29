@@ -28,6 +28,8 @@ npm run dev
 
 ヘルプ記事は`order`の昇順で一覧表示されます。ファイル名がそのままURLのslugになります。
 
+ブログ記事はfrontmatterに`published: false`を指定すると、一覧と記事ページの生成対象から除外されます。省略した場合は公開されます。
+
 ```md
 ---
 title: "記事タイトル"

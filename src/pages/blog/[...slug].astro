@@ -4,7 +4,7 @@ import BlogArticle from '../../components/BlogArticle.astro';
 import { slugFromId } from '../../lib/i18n';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('blog', ({ data }) => data.locale === 'ja');
+  const entries = await getCollection('blog', ({ data }) => data.locale === 'ja' && data.published);
   return entries.map((entry) => ({ params: { slug: slugFromId(entry.id) }, props: { entry } }));
 }
 

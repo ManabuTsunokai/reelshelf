@@ -32,6 +32,7 @@ const blog = defineCollection({
     eyecatchAlt: z.string().optional(),
     locale,
     author: z.string(),
+    published: z.boolean().default(true),
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date(),
   }),
